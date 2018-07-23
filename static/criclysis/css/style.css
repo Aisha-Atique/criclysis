@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Pacifico");
+body{
+      font-family: 'Open Sans';
+      }
+    html,
+    body,
+    .view {
+      height: 100%;
+    }
+    header{
+      height: 4.5em;
+    }
+    .display-4{
+        margin-top: -3em;
+      }
+    .navbar {
+                  background: #1c1c1c!important;
+              }
+    @media (max-width: 740px) {
+      html,
+      body,
+      .view {
+        height: 500px;
+      }
+      .display-4{
+        margin-top: 0.5em !important;
+      }
+      header{
+      height: 3em;
+    }
+    }
+    @media only screen and (max-width: 600px) {
+      html,
+      body,
+      .view {
+        height: 500px;
+      }
+      .display-4{
+        margin-top: 0.5em !important;
+        font-size: 2em;
+      }
+      header{
+      height: 5em;
+    }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+      html,
+      body,
+      .view {
+        height: 650px;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1c1c1c!important;
+              }
+          }
+
+    .page-footer {
+  background-color: #1c1c1c; }
+
+  /* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.top-nav-collapse {
+  background-color: #1c1c1c; }
+.logo {
+      font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    color: #8c1222;
+    margin-top: -0.3em;
+padding-right: 1em;}
+.logo:hover {
+        color: #ce4456;
+      }
+.dropsimple {
+    font-size: 1.3em;
+    color: white !important;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #8c1222;
+  text-decoration: none;
+  background-color: #8c1222;
+}
+.heading{
+   font-family: 'Open Sans';
+}
+
+hr {
+  border-width: 3px;
+  border-color: #8c1222;
+}
+hr.main{
+max-width: 50px;
+}
+hr.light {
+  border-color: #fff;
+}
+.modal-header {
+  background-color: #1c1c1c !important; }
+ .md-form input:focus:not([readonly]) + label, .prefix.active{
+        color: black !important;
+         }
+.md-form input:focus{
+  border-bottom: 1px solid black !important;
+}
+.card{border:1px;  margin-top:100px !important; margin-bottom:100px !important;}
+.errorlist{
+color: red; }
+.modal-header{ margin: -2rem 1rem 1rem 1rem;}
+
+.bg-primary {
+  background-color: #8c1222 !important;
+}
+
+.bg-dark {
+  background-color: #1c1c1c !important;
+}
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.section-heading {
+  margin-top: 0;
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.btn-xl {
+  padding: 1rem 2rem;
+}
+
+.btn-primary {
+  background-color: #8c1222 !important;
+  border-color: #8c1222;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  color: #fff;
+  background-color: #ce4456 !important;
+}
+
+.text-primary {
+  color: #8c1222 !important;
+}
+
+.navbar-nav > li.nav-item > a.nav-link.active,
+.navbar-nav > li.nav-item > a.nav-link:focus.active {
+  color: #ce4456 !important;
+  font-weight: bold;
+  background-color: transparent;
+}
+.pick-info {
+    color: white;
+    background-color: #ce4456;
+    border-color: #8c1222;
+    margin-top: 0.8em;
+    margin-left: 1.5em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+}
+.col{
+border-color: #8c1222;
+background-color: #ce4456;
+}
