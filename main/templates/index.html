@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load staticfiles%}
+<!-- Full Page Intro -->
+  <div class="view full-page-intro" style="background-image: url('{% static 'criclysis/img/ball.jpg' %}'); background-repeat: no-repeat; background-size: cover;" >
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+<div class="text-center white-text mx-5 wow fadeIn">
+              <h1 class="display-4">
+                <strong style="font-size: 1.2em;" class="heading">A FUSION OF CRICKET AND ANALYSIS</strong>
+              </h1>
+<hr class="main">
+
+                 <p class="mb-4 d-none d-md-block">
+                <strong style="font-size: 1.5em">Create Your own T20 Leagues and Teams using our Drafting Analysis</strong>
+              </p>
+
+              <a class="btn btn-primary btn-xl js-scroll-trigger" href="#start">Find Out More</a>
+
+            </div>
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+
+<section class="bg-primary" id="start">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">We've got what you need!</h2>
+            <hr class="main light my-4">
+            <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'register' %}">Get Started!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- Full Page Intro -->
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">At Your Service</h2>
+            <hr class="main">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Sturdy Templates</h3>
+              <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Ready to Ship</h3>
+              <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Up to Date</h3>
+              <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Made with Love</h3>
+              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="bg-dark text-white" id="analysis">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 " style="border-right: 1px solid #ccc;">
+            <div class="service-box mt-2 mx-auto">
+              <h3 class="mb-3">PCA</h3>
+              <p class="text-muted mb-0">We update dependencies to keep things fresh. </p>
+            </div>
+          </div>
+          <div class="col-lg-6 ">
+            <div class="service-box mt-2 mx-auto">
+              <h3 class="mb-3">AHP</h3>
+              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- Section: Team v.3 -->
+<section id="contact">
+<div class="container">
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Our amazing team</h2>
+  <!-- Section description -->
+  <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+  <!-- Grid row-->
+  <div class="row text-center text-md-left">
+
+    <!-- Grid column -->
+    <div class="col-lg-6 mb-5 d-md-flex justify-content-between">
+      <div class="avatar mb-md-0 mb-4 mx-4">
+        <img src="{% static 'criclysis/img/khadija.png' %}" class="rounded z-depth-1" alt="Sample avatar">
+      </div>
+      <div class="mx-4">
+        <h4 class="font-weight-bold mb-3">Khadija Tul Kubra Zaki</h4>
+        <h6 class="font-weight-bold grey-text mb-3">Web Designer</h6>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur.</p>
+        <!-- Facebook-->
+        <a class="p-2 fa-lg fb-ic">
+          <i class="fa fa-facebook"> </i>
+        </a>
+        <!-- Twitter -->
+        <a class="p-2 fa-lg tw-ic">
+          <i class="fa fa-twitter"> </i>
+        </a>
+        <!--Dribbble -->
+        <a class="p-2 fa-lg dribbble-ic">
+          <i class="fa fa-dribbble"> </i>
+        </a>
+      </div>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-6 mb-5 d-md-flex justify-content-between">
+      <div class="avatar mb-md-0 mb-4 mx-4">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded z-depth-1" alt="Sample avatar">
+      </div>
+      <div class="mx-4">
+        <h4 class="font-weight-bold mb-3">Aisha Atique</h4>
+        <h6 class="font-weight-bold grey-text mb-3">Photographer</h6>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur.</p>
+        <!-- Facebook-->
+        <a class="p-2 fa-lg fb-ic">
+          <i class="fa fa-facebook"> </i>
+        </a>
+        <!--YouTube -->
+        <a class="p-2 fa-lg yt-ic">
+          <i class="fa fa-youtube"> </i>
+        </a>
+        <!--Instagram-->
+        <a class="p-2 fa-lg ins-ic">
+          <i class="fa fa-instagram"> </i>
+        </a>
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row-->
+</div>
+</section>
+<!-- Section: Team v.3 -->
+{% endblock %}

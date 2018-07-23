@@ -1,0 +1,17 @@
+{% extends 'sidebar.html' %}
+{% load staticfiles%}
+  {% block sidebar %}
+{% if not team %}
+<form action="{% url 'select_team' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <input type="number" id="start" name="team_number" min="1" max="5" value="1"/>
+    <label for="start">select in range of 1 to 5</label>
+    <button type="submit" class="btn btn-danger btn-xs">
+        <span class="glyphicon glyphicon-remove"></span>&nbsp; create teams
+    </button>
+</form>
+{% else %}
+you have chosen {{ total_teams }} teams <br>
+your picking order is {{ all_picks }}
+{% endif %}
+  {% endblock %}

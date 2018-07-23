@@ -1,0 +1,57 @@
+{% extends 'sidebar.html' %}
+{% load staticfiles%}
+  {% block sidebar %}
+<h1>Settings</h1>
+<hr>
+<div class="card" style="margin-top: 2em !important;">
+  <div class="card-body">
+    <h4 class="card-title"><a>Clear All Teams</a></h4>
+    <p class="card-text">Clear all the teams and players you have choosen uptill now</p>
+      {% if not team %}
+<form action="{% url 'reset_all' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+<div class="alert alert-info" role="alert">
+  You have not created any teams yet. Go to <a href="{% url 'profile' %}" class="alert-link">Profile</a>, and create teams.
+</div>
+                <button type="submit" class="btn btn-primary btn-xs float-right" disabled>
+                <span class="glyphicon glyphicon-remove"></span>&nbsp; Clear Teams
+                </button>
+                </form>
+{% else %}
+<form action="{% url 'reset_all' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-xs float-right">
+                <span class="glyphicon glyphicon-remove"></span>&nbsp; Clear Teams
+                </button>
+                </form>
+      {% endif %}
+  </div>
+</div>
+
+<!-- players -->
+<div class="card" style="margin-top: -3em !important;">
+  <div class="card-body">
+    <h4 class="card-title"><a>Clear All Players</a></h4>
+    <p class="card-text">Clear all the players of all the teams you have choosen uptill now</p>
+      {% if select_list %}
+<form action="{% url 'reset_pl' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-xs float-right">
+                <span class="glyphicon glyphicon-remove"></span>&nbsp; Clear Players
+                </button>
+                </form>
+{% else %}
+<form action="{% url 'reset_pl' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+    <div class="alert alert-info" role="alert">
+  You have not selected any player yet.
+</div>
+                <button type="submit" class="btn btn-primary btn-xs float-right" disabled>
+                <span class="glyphicon glyphicon-remove"></span>&nbsp; Clear Players
+                </button>
+                </form>
+      {% endif %}
+  </div>
+</div>
+
+  {% endblock %}

@@ -1,0 +1,26 @@
+{% extends "sidebar.html" %}
+
+{% block sidebar %}
+    <h1>Bowlers</h1>
+{% if not team %}
+first create teams go to profile
+{% endif %}
+{% if select_list %}
+{% for bowler in bowler_list %}
+      <li>
+         <a href="{{ bowler.get_absolute_url }}"> {{ bowler.title }}</a>
+          {% for select in select_list %}
+          {% if bowler == select.bowler %} Favorited by{{ select.get_team_display }} {% endif %}
+          {% endfor %}
+      </li>
+{% endfor %}
+{% else %}
+      {% for bowler in bowler_list %}
+      <li>
+        <a href="{{ bowler.get_absolute_url }}"> {{ bowler.title }}</a>
+      </li>
+
+{% endfor %}
+{% endif %}
+<h2>Principal Component Analysis is widely used in applied multivariate data analysis, and this article shows how to motivate student interest in this topic using cricket sports data. Here, principal component analysis is successfully used to rank the cricket batsmen and bowlers who played in the 2012 Indian Premier League (IPL) competition. In particular, the first principal component is seen to explain a substantial portion of the variation in a linear combination of some commonly used measures of cricket prowess. This application provides an excellent, elementary introduction to the topic of principal component analysis.</h2>
+{% endblock %}

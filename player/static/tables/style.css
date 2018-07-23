@@ -1,0 +1,35 @@
+table.table thead th {
+    background: #8c1222;
+    color: #ffffff!important;
+    font-weight: bold;
+}
+
+body {
+    margin: 25px 30px 27px 35px;
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.btn {
+    font: 1rem 'Fira Sans', sans-serif;
+    padding: .5rem;
+    background: #8c1222;
+    border: none;
+    border-radius: 6px;
+    margin: 0 auto;
+
+}
+
+.btn-default
+{
+    font: 1rem 'Fira Sans', sans-serif;
+    padding: .5rem;
+    background: #8c1222!important;
+    border: none;
+    border-radius: 6px;
+    margin: 0 auto;
+}

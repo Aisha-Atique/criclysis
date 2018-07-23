@@ -1,0 +1,39 @@
+{% extends "sidebar.html" %}
+
+{% block sidebar %}
+  <h1>Title: {{ batsman.title }}</h1>
+{% if team %}
+    {% for t in team %}
+        {% widthratio t.total 1 2 as total%}
+        {% if all_select == total|add:0 %}
+            you have now created all teams
+        {% else %}
+            {% if messages %}
+                <div class="span12">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                    {{ message|safe }}
+                </div>
+                {% endfor %}
+                </div>
+            {% else %}
+            {% if select_list %}
+                selected
+            {% else %}
+                <form action="{% url 'select_batsman' batsman.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-xs">
+                <span class="glyphicon glyphicon-remove"></span>&nbsp; select this player
+                </button>
+                </form>
+            {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor  %}
+{% else %}
+    first create teams
+{% endif %}
+
+  <p><strong>Author:</strong></p> <!-- author detail link not yet defined -->
+
+{% endblock %}

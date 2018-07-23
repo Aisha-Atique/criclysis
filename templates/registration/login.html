@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block body %}
+{% load staticfiles%}
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-xs-12"></div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+  	<div class="card">
+    <div class="card-block">
+        <div class="modal-header info-color white-text">
+                <h4 class="title">Signin</h4>
+            </div>
+<div class="modal-body">
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p></p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+                </div>
+<div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <td>{{ form.password.label_tag }}</td>
+                     <td>{{ form.password }}</td>
+    <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="{% url 'password_reset' %}" class="dark-grey-text ml-1 font-weight-bold"> Password?</a></p>
+                </div>
+
+<div class="text-center mt-4 mb-2">
+                    <button class="btn btn-primary" type="submit" >Login
+                    </button>
+  <input type="hidden" name="next" value="{{ next }}" />
+</div>
+    <p class="font-small grey-text d-flex justify-content-end">Don't have an account? <a href="{% url 'register' %}" class="dark-grey-text ml-1 font-weight-bold"> Sign Up</a></p>
+</form>
+</div>
+
+
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12"></div>
+</div>
+</div>
+{% endblock %}

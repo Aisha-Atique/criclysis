@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+{% load staticfiles%}
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-xs-12"></div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+  	<div class="card">
+    <div class="card-block">
+        <div class="modal-header info-color white-text">
+                <h4 class="title">SignUp</h4>
+            </div>
+<div class="modal-body">
+
+<form action="" method="post" novalidate enctype="multipart/form-data">
+{% csrf_token %}
+    {{form.non_field_errors}}
+<div class="md-form form-sm">
+                    <i  class="fa fa-user prefix">{% if form.username.field.required %}*{% endif %}</i>
+                    <td>{{ form.username.label_tag}}</td>
+  <td>{{ form.username }}</td>
+    {{form.username.errors}}
+        <div class="md-form form-sm">
+                    <i style="font-size:1.2em;" class="fa fa-envelope prefix">{% if form.email.field.required %}* {% endif %}</i>
+                    <td>{{ form.email.label_tag }}</td>
+                     <td>{{ form.email }}</td>
+            {{form.email.errors}}
+    </div>
+<div class="md-form form-sm">
+                    <i style="font-size:1.2em;" class="fa fa-address-book prefix">{% if form.first_name.field.required %}*{% endif %}</i>
+                    <td>{{ form.first_name.label_tag }}</td>
+                     <td>{{ form.first_name }}</td>
+    {{form.first_name.errors}}
+    </div>
+    <div class="md-form form-sm">
+                    <i style="font-size:1.2em;" class="fa fa-address-book prefix">{% if form.last_name.field.required %}*{% endif %}</i>
+                    <td>{{ form.last_name.label_tag }}</td>
+                     <td>{{ form.last_name }}</td>
+        {{form.last_name.errors}}
+    </div>
+    <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix">*</i>
+                    <td>{{ form.password.label_tag }}</td>
+                     <td>{{ form.password }}</td>
+        {{form.password.errors}}
+
+   </div>
+        <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix">*</i>
+                    <td>{{ form.confirm_password.label_tag }}</td>
+                     <td>{{ form.confirm_password }}</td>
+            {{form.confirm_password.errors}}
+    </div>
+
+<div class="text-center mt-4 mb-2">
+                    <button class="btn btn-primary" type="submit" >Sign Up
+                    </button>
+</div>
+    <p class="font-small grey-text d-flex justify-content-end">Already have an account? <a href="{% url 'login'%}?next={{request.path}}" class="dark-grey-text ml-1 font-weight-bold">Login</a></p>
+</div></form>
+</div>
+
+
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12"></div>
+</div>
+</div>
+{% endblock %}
+
+    <!--{% csrf_token %}-->
+    <!--{{form.non_field_errors}}-->
+    <!--<td>{{ form.username.label_tag }} {% if field.field.required %} * {% endif %}</td>-->
+  <!--<td>{{ form.username }}</td>-->
+        <!--<table>-->
+            <!--{% for field in form %}-->
+  <!--{{field.label}} {% if field.field.required %} * {% endif %}-->
+  <!--{{field}}-->
+  <!--{{field.errors}}-->
+<!--{% endfor %}-->
+        <!--</table>-->
+        <!--<div class="text-center mt-4 mb-2">-->
+                    <!--<button class="btn btn-dark">Send-->
+                    <!--</button>-->
+                <!--</div>-->
+
