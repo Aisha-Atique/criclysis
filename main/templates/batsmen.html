@@ -10,7 +10,7 @@ first create teams go to profile
       <li>
          <a href="{{ batsman.get_absolute_url }}"> {{ batsman.title }}</a>
           {% for select in select_list %}
-          {% if batsman == select.batsman %} Favorited by{{ select.get_team_display }} {% endif %}
+          {% if batsman == select.batsman %} Selected by{{ select.get_team_display }} {% endif %}
           {% endfor %}
       </li>
 {% endfor %}

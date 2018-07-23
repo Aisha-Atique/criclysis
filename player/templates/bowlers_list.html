@@ -1,4 +1,6 @@
-<!doctype html>
+{% extends "sidebar.html" %}
+
+{% block sidebar %}
 {% load bootstrap3 %}
 {% load render_table from django_tables2 %}
 {% load crispy_forms_tags %}
@@ -31,3 +33,4 @@
 
 
 {% endblock content %}
+{% endblock %}

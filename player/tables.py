@@ -17,7 +17,7 @@ import django_tables2 as dt2
 
 
 class BowlerTable(dt2.Table):
-    # name = tables.LinkColumn('BowlerList', args=[A('pk')])
+    name = tables.LinkColumn('BowlerDetailView', args=[A('pk')])
     # ahprank = tables.LinkColumn('BowlerList', args=[A('pk')])
     # pcarank = tables.LinkColumn('BowlerList', args=[A('pk')])
     class Meta:

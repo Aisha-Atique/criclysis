@@ -4,9 +4,7 @@ table.table thead th {
     font-weight: bold;
 }
 
-body {
-    margin: 25px 30px 27px 35px;
-}
+
 
 legend {
     background-color: #000;
@@ -32,4 +30,14 @@ legend {
     border: none;
     border-radius: 6px;
     margin: 0 auto;
+}
+.pick-info {
+    color: white;
+    background-color: #ce4456;
+    border-color: #8c1222;
+    margin-top: 0.8em;
+    margin-left: 1.5em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
 }
