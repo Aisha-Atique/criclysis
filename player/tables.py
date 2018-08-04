@@ -18,7 +18,7 @@ from main.views import BowlerDetailView
 
 
 class BowlerTable(dt2.Table):
-    # name = tables.LinkColumn(BowlerDetailView, args=[A('pk')])
+    name = tables.LinkColumn('bowler-detail', args=[A('pk')])
     # ahprank = tables.LinkColumn('BowlerList', args=[A('pk')])
     # pcarank = tables.LinkColumn('BowlerList', args=[A('pk')])
     class Meta:

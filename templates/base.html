@@ -184,23 +184,25 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
+new WOW().init();
+$(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
         });
+
+        $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse').toggleClass('in');
+            $('a[aria-expanded]').attr('aria-expanded', 'false');
+        });
+
+    });
     </script>
     <script>
               jQuery(function($){
@@ -230,6 +232,13 @@
 
 });
     </script>
-
+<script type="text/javascript">
+$(".reset-pl").click(function () {
+        $("#reset-anchor").attr("href", $(this).data("id"));
+    });
+    $(".reset-all").click(function () {
+        $("#reset-anchor").attr("href", $(this).data("id"));
+    });
+</script>
 	</body>
 </html>

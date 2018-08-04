@@ -1,6 +1,7 @@
 {% extends "sidebar.html" %}
-
+<title>{% block title %}Bowlers{% endblock %}</title>
 {% block sidebar %}
+
 {% load bootstrap3 %}
 {% load render_table from django_tables2 %}
 {% load crispy_forms_tags %}
@@ -8,7 +9,7 @@
 
 <html>
     <head>
-        <title>List of persons</title>
+
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Bootstrap core CSS -->
@@ -23,7 +24,11 @@
 
 
 {% block content %}
+<h1>Bowlers</h1>
+<hr>
+<div class="wow fadeIn">
 {% render_table table %}
+</div>
 
 
 <form action="" method="get">

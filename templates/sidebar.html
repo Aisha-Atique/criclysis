@@ -19,7 +19,7 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle example hoverable">Players</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a class="example hoverable" href="{% url 'bowlers' %}">Bowlers</a>
+                            <a class="example hoverable" href="{% url 'BowlerList' %}">Bowlers</a>
                         </li>
                         <li>
                             <a class="example hoverable" href="{% url 'batsmen' %}">Batsmen</a>
@@ -29,9 +29,9 @@
                 <li>
                     <a class="example hoverable" href="{% url 'teams' %}">Teams</a>
                 </li>
-                <li>
-                    <a class="example hoverable" href="{% url 'BowlerList' %}">Players</a>
-                </li>
+                <!--<li>-->
+                    <!--<a class="example hoverable" href="{% url 'BowlerList' %}">Players</a>-->
+                <!--</li>-->
                 <li>
                     <a class="example hoverable" href="{% url 'settings' %}">Settings</a>
                 </li>
@@ -50,14 +50,20 @@
 
         <!-- Page Content  -->
         <div>
-          <button type="button" id="sidebarCollapse" class="btn btn-dark">
+          <button type="button" id="sidebarCollapse" class="btn btn-dark ">
                         <i class="fa fa-align-left"></i>
                     </button>
+            {% if info %}
+                        <span class="alert alert-info pick-info text-center" role="alert">
+{{ info }}
+            </span>
+            {% else %}
                 {% if pick %}
             <span class="alert alert-info pick-info text-center" role="alert">
 Team {{ pick }} turn
             </span>
 
+            {% endif %}
             {% endif %}
         </div>
 <div class="container">

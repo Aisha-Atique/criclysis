@@ -2,11 +2,13 @@ from django.db import models
 from django.urls import reverse  # Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
+from player import *
+from player.models import *
 
 
 class Bowler(models.Model):
     title = models.CharField(max_length=200)
-    users = models.ManyToManyField(User, through='UserSelect')
+    # users = models.ManyToManyField(User, through='UserSelect')
 
     def __str__(self):
         return self.title
@@ -38,7 +40,7 @@ class Team(models.Model):
 
 class UserSelect(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    bowler = models.ForeignKey(Bowler, on_delete=models.CASCADE, related_name='bowlers', null=True, blank=True)
+    bowler = models.ForeignKey(Bowlers, on_delete=models.CASCADE, related_name='bowlers', null=True, blank=True)
     batsman = models.ForeignKey(Batsman, on_delete=models.CASCADE, related_name='batsman', null=True, blank=True)
     TEAM_STATUS = (
         ('1', 'Team A'),

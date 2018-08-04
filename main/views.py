@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic import View, TemplateView
 from .forms import UserForm
 from django.views import generic
-from .models import UserSelect, Team, Bowler, Batsman
+from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
@@ -63,6 +63,23 @@ class BatsmanListView(LoginRequiredMixin, generic.ListView):
         return Batsman.objects.all()
 
 
+def detail(request, pk):
+    if not request.user.is_authenticated():
+        return render(request, 'registration/login.html')
+    else:
+        bowler = get_object_or_404(Bowlers, pk=pk)
+        select_list = UserSelect.objects.filter(user=request.user, bowler=pk)
+        all_select = UserSelect.objects.filter(user=request.user).count()
+        team = Team.objects.filter(user=request.user)
+        context = {
+            'bowler': bowler,
+            'select_list': select_list,
+            'all_select': all_select,
+            'team': team,
+        }
+        return render(request, 'bowler_detail.html', context)
+
+
 class BowlerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Bowler
     template_name = 'bowler_detail.html'
@@ -88,7 +105,7 @@ class BatsmanDetailView(LoginRequiredMixin, generic.DetailView):
 
 
 def select_bowler(request, pk):
-        bowler = get_object_or_404(Bowler, pk=pk)
+        bowler = get_object_or_404(Bowlers, pk=pk)
         team2 = Team.objects.get(user=request.user)
         if UserSelect.objects.filter(user=request.user, bowler=bowler,).exists():
             messages.error(request, 'Already selected')

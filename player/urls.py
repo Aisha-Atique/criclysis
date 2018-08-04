@@ -6,5 +6,5 @@ from player import views
 
 
 urlpatterns = [
-    url(r'^player/$', views.BowlerList.as_view(), name='BowlerList'),
+    url(r'^bowlers/$', views.BowlerList.as_view(), name='BowlerList'),
 ]

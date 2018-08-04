@@ -28,6 +28,9 @@ body{
       header{
       height: 3em;
     }
+    .team a {
+font-size: 1em !important;
+}
     }
     @media only screen and (max-width: 600px) {
       html,
@@ -42,6 +45,9 @@ body{
       header{
       height: 5em;
     }
+        .team a {
+font-size: 1em !important;
+}
     }
 
     @media (min-width: 800px) and (max-width: 850px) {
@@ -50,6 +56,9 @@ body{
       .view {
         height: 650px;
       }
+          .team a {
+font-size: 1em !important;
+}
     }
     @media (min-width: 800px) and (max-width: 850px) {
               .navbar:not(.top-nav-collapse) {
@@ -171,7 +180,23 @@ section {
     padding-bottom: 2px;
 
 }
-.col{
-border-color: #8c1222;
-background-color: #ce4456;
+
+.team {
+padding: 20px;
+color: white;
+border: #cdcdcd medium solid !important;
+background: #1c1c1c;
+line-height: 1em;
+}
+.team a {
+color: #ce4456;
+font-size: 1.5em;
+}
+
+.team h3 {
+font-size: 2em;
+}
+
+.team a:hover{
+color: white;
 }

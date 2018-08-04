@@ -1,13 +1,10 @@
 {% extends "sidebar.html" %}
-
+<title>{% block title %}{{ bowler.name }}{% endblock %}</title>
 {% block sidebar %}
-  <h1>Title: {{ bowler.title }}</h1>
+
+<h1>Title: {{ bowler.name }}</h1>
 {% if team %}
     {% for t in team %}
-        {% widthratio t.total 1 2 as total%}
-        {% if all_select == total|add:0 %}
-            you have now created all teams
-        {% else %}
             {% if messages %}
                 <div class="span12">
                 {% for message in messages %}
@@ -16,9 +13,12 @@
                 </div>
                 {% endfor %}
                 </div>
-            {% else %}
+            {% endif %}
+
             {% if select_list %}
-                selected
+              {% for select in select_list %}
+              Selected by {{ select.get_team_display }}
+              {% endfor %}
             {% else %}
                 <form action="{% url 'select_bowler' bowler.id %}" method="post" style="display: inline;">
                 {% csrf_token %}
@@ -27,13 +27,53 @@
                 </button>
                 </form>
             {% endif %}
-            {% endif %}
-        {% endif %}
+
+
     {% endfor  %}
 {% else %}
     first create teams
 {% endif %}
 
-  <p><strong>Author:</strong></p> <!-- author detail link not yet defined -->
+<h3>Wickets {{ bowler.wkts }}</h3>
+<h3>Average {{ bowler.ave }}</h3>
+<h3>Economy {{ bowler.econ }}</h3>
+<h3>Strike Rate {{ bowler.sr }}</h3>
+<h3>Matches Played {{ bowler.matches }}</h3>
+<h3>{{ bowler.Playing_Role }}</h3>
+
+  <!--<h1>Title: {{ bowler.title }}</h1>-->
+<!--{% if team %}-->
+    <!--{% for t in team %}-->
+        <!--{% widthratio t.total 1 2 as total%}-->
+        <!--{% if all_select == total|add:0 %}-->
+            <!--you have now created all teams-->
+        <!--{% else %}-->
+            <!--{% if messages %}-->
+                <!--<div class="span12">-->
+                <!--{% for message in messages %}-->
+                    <!--<div class="alert alert-{{ message.tags }}">-->
+                    <!--{{ message|safe }}-->
+                <!--</div>-->
+                <!--{% endfor %}-->
+                <!--</div>-->
+            <!--{% else %}-->
+            <!--{% if select_list %}-->
+                <!--selected-->
+            <!--{% else %}-->
+                <!--<form action="{% url 'select_bowler' bowler.id %}" method="post" style="display: inline;">-->
+                <!--{% csrf_token %}-->
+                <!--<button type="submit" class="btn btn-danger btn-xs">-->
+                <!--<span class="glyphicon glyphicon-remove"></span>&nbsp; select this player-->
+                <!--</button>-->
+                <!--</form>-->
+            <!--{% endif %}-->
+            <!--{% endif %}-->
+        <!--{% endif %}-->
+    <!--{% endfor  %}-->
+<!--{% else %}-->
+    <!--first create teams-->
+<!--{% endif %}-->
+
+  <!--<p><strong>Author:</strong></p> &lt;!&ndash; author detail link not yet defined &ndash;&gt;-->
 
 {% endblock %}

@@ -1,23 +1,43 @@
+{% load staticfiles%}
+
+table.table td a:hover{
+color: #8c1222;
+}
+table.table td{
+font-size: 1.2em;
+}
+
 table.table thead th {
     background: #8c1222;
-    color: #ffffff!important;
-    font-weight: bold;
+    font-size: 1.5em;
 }
+
+table.table thead th a {
+color: white;}
+
+.table.table thead th:after {
+        font-family: FontAwesome;
+        padding: 0.5em;
+        color: white;
+        content: "\f0dc";
+ }
+table.table thead th.asc:after {
+        font-family: FontAwesome;
+        padding: 0.5em;
+        color: white;
+        content: "\f0de";
+ }
+table.table thead th.desc:after {
+        font-family: FontAwesome;
+        padding: 0.5em;
+        color: white;
+        content: "\f0dd";
+ }
 
 legend {
     background-color: #000;
     color: #fff;
     padding: 3px 6px;
-}
-
-.btn {
-    font: 1rem 'Fira Sans', sans-serif;
-    padding: .5rem;
-    background: #8c1222;
-    border: none;
-    border-radius: 6px;
-    margin: 0 auto;
-
 }
 
 .btn-default
@@ -38,4 +58,26 @@ legend {
     padding-top: 2px;
     padding-bottom: 2px;
 
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+  padding: 0.8rem 2.1rem;
+  border-radius: 0px;
+  background: #8c1222;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+table.table th a{
+text-decoration: uppercase;
+}
+hr {
+  border-width: 3px;
+  border-color: #8c1222;
 }

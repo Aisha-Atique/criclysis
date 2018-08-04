@@ -1,65 +1,80 @@
 {% extends 'sidebar.html' %}
+<title>{% block title %}Teams{% endblock %}</title>
 {% block sidebar %}
 {% load staticfiles%}
 
 <h1>Teams List</h1>
-{{ total_teams }}
+<hr>
 {% if select_list %}
-<div class="row">
+<div class="row wow slideInRight">
     {% if total_teams >= 1 %}
 <div class="col">
-<br><h3>Team A</h3>
+    <div class="team">
+<h3 class="text-center">Team A</h3>
+        <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team A" %}
-{{ select.bowler|default_if_none:""  }}
-{{ select.batsman|default_if_none:""  }}
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} </a> <br/>
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} </a> <br/>
 {% endif %}
 {% endfor %}
+    </div>
     </div>
     {% endif %}
     {% if total_teams >= 2 %}
     <div class="col">
-<br><h3>Team B</h3>
+        <div class="team">
+<h3 class="text-center">Team B</h3>
+            <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team B" %}
-{{ select.bowler|default_if_none:""  }}
-{{ select.batsman|default_if_none:""  }}
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} </a> <br/>
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} </a> <br/>
 {% endif %}
 {% endfor %}
+    </div>
     </div>
     {% endif %}
     {% if total_teams >= 3 %}
     <div class="col">
-<br><h3>Team C</h3>
+        <div class="team">
+<h3 class="text-center">Team C</h3>
+            <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team C" %}
-{{ select.bowler|default_if_none:""  }}
-{{ select.batsman|default_if_none:""  }}
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} </a> <br/>
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} </a> <br/>
 {% endif %}
 {% endfor %}
+    </div>
     </div>
     {% endif %}
     {% if total_teams >= 4 %}
     <div class="col">
-<br><h3>Team D</h3>
+        <div class="team">
+<h3 class="text-center">Team D</h3>
+            <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team D" %}
-{{ select.bowler|default_if_none:""  }}
-{{ select.batsman|default_if_none:""  }}
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} </a> <br/>
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} </a> <br/>
 {% endif %}
 {% endfor %}
+    </div>
     </div>
     {% endif %}
     {% if total_teams >= 5 %}
     <div class="col">
-
-<br><h3>Team E</h3>
+<div class="team">
+<h3 class="text-center">Team E</h3>
+<hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team E" %}
-{{ select.bowler|default_if_none:""  }}
-{{ select.batsman|default_if_none:""  }}
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} </a> <br/>
+        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} </a> <br/>
 {% endif %}
 {% endfor %}
+    </div>
     </div>
     {% endif %}
 </div>
