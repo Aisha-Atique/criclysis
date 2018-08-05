@@ -170,7 +170,6 @@ class UserFormView(View):
         form = self.form_class(None)
         return render(request, self.template_name, {'form': form})
 
-
 # process
     def post(self, request):
         form = self.form_class(request.POST)

@@ -31,6 +31,12 @@ body{
     .team a {
 font-size: 1em !important;
 }
+.imglogo{
+padding:0 !important;
+margin-top:1em !important;
+margin-bottom:-1em; !important;
+margin-left:9em !important;
+}
     }
     @media only screen and (max-width: 600px) {
       html,
@@ -47,6 +53,12 @@ font-size: 1em !important;
     }
         .team a {
 font-size: 1em !important;
+}
+.imglogo{
+width:50px;
+height:50px;
+
+margin-left:6em;
 }
     }
 
@@ -75,6 +87,14 @@ font-size: 1em !important;
 
 .top-nav-collapse {
   background-color: #1c1c1c; }
+
+.imglogo{
+width:80px;
+height:80px;
+margin-top:-2.2em;
+margin-bottom:-2em;
+margin-left:3em;
+}
 .logo {
       font-family: 'Pacifico', cursive;
     font-size: 2.5em;

@@ -26,7 +26,7 @@ def total_check(request):
             team = get_object_or_404(Team, user=request.user)
             total = team.total * 2
             if all_select == total:
-                info = "You have now created all teams"
+                info = "All Teams Created"
                 return {'info': info}
         else:
             return {'info': ''}

@@ -3,7 +3,7 @@
 {% load staticfiles%}
   {% block sidebar %}
 {% if not team %}
-<form action="{% url 'select_team' %}" method="post" style="display: inline;">
+<form action="{% url 'select_team' %}" method="post" style="display: inline;" class="form-control form-control-lg">
     {% csrf_token %}
     <input type="number" id="start" name="team_number" min="1" max="5" value="1"/>
     <label for="start">select in range of 1 to 5</label>

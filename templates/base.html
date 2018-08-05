@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Criclysis{% endblock %}</title>
+
     {% load staticfiles %}
+    <link rel="icon" href="{% static 'criclysis/img/ballicon.png' %}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -55,9 +57,11 @@
     <header>
     <!-- Navbar -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-    <div class="container">
+      <img class="imglogo" src="{% static 'criclysis/img/ballicon.png' %}">
+    <div class="container" style="margin-left:0;">
 
       <!-- Brand -->
+
       <a class="logo" href="{% url 'home' %}">
       Criclysis
       </a>

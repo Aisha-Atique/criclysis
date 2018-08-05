@@ -2,78 +2,115 @@
 <title>{% block title %}{{ bowler.name }}{% endblock %}</title>
 {% block sidebar %}
 
-<h1>Title: {{ bowler.name }}</h1>
+<h1 style="display:inline;">{{bowler.name}}</h1>
 {% if team %}
     {% for t in team %}
             {% if messages %}
                 <div class="span12">
                 {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">
-                    {{ message|safe }}
-                </div>
+                    <div class="alert alert-info" role="alert">
+                        {{ message|safe }}
+</div>
                 {% endfor %}
                 </div>
             {% endif %}
 
             {% if select_list %}
               {% for select in select_list %}
-              Selected by {{ select.get_team_display }}
+              <div class="float-right" style="color: green; font-size:1.5em;">
+                  Selected by {{ select.get_team_display }}
+              </div>
               {% endfor %}
             {% else %}
+{% if not info %}
                 <form action="{% url 'select_bowler' bowler.id %}" method="post" style="display: inline;">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-danger btn-xs">
+                <button type="submit" class="btn btn-success btn-xs float-right">
                 <span class="glyphicon glyphicon-remove"></span>&nbsp; select this player
                 </button>
                 </form>
+{%endif%}
             {% endif %}
 
 
     {% endfor  %}
+<div style="clear:both;"></div>
+<hr>
 {% else %}
-    first create teams
+<hr>
+<div class="alert alert-info" role="alert">
+  You have to first create teams to select this player. Go to <a href="{% url 'profile' %}" class="alert-link">Profile</a>, and create teams.
+</div>
 {% endif %}
 
-<h3>Wickets {{ bowler.wkts }}</h3>
-<h3>Average {{ bowler.ave }}</h3>
-<h3>Economy {{ bowler.econ }}</h3>
-<h3>Strike Rate {{ bowler.sr }}</h3>
-<h3>Matches Played {{ bowler.matches }}</h3>
-<h3>{{ bowler.Playing_Role }}</h3>
+<!-- Section: Features v.1 -->
+<section class="my-2">
+    <div class="card" style="background:#8c1222; margin-top: -3em !important;">
+  <div class="card-body">
+  <div class="modal-header info-color white-text">
+                <h4 class="title">Playing Role: {{ bowler.Playing_Role|cut:"Playing role "  }}</h4>
+            </div>
 
-  <!--<h1>Title: {{ bowler.title }}</h1>-->
-<!--{% if team %}-->
-    <!--{% for t in team %}-->
-        <!--{% widthratio t.total 1 2 as total%}-->
-        <!--{% if all_select == total|add:0 %}-->
-            <!--you have now created all teams-->
-        <!--{% else %}-->
-            <!--{% if messages %}-->
-                <!--<div class="span12">-->
-                <!--{% for message in messages %}-->
-                    <!--<div class="alert alert-{{ message.tags }}">-->
-                    <!--{{ message|safe }}-->
-                <!--</div>-->
-                <!--{% endfor %}-->
-                <!--</div>-->
-            <!--{% else %}-->
-            <!--{% if select_list %}-->
-                <!--selected-->
-            <!--{% else %}-->
-                <!--<form action="{% url 'select_bowler' bowler.id %}" method="post" style="display: inline;">-->
-                <!--{% csrf_token %}-->
-                <!--<button type="submit" class="btn btn-danger btn-xs">-->
-                <!--<span class="glyphicon glyphicon-remove"></span>&nbsp; select this player-->
-                <!--</button>-->
-                <!--</form>-->
-            <!--{% endif %}-->
-            <!--{% endif %}-->
-        <!--{% endif %}-->
-    <!--{% endfor  %}-->
-<!--{% else %}-->
-    <!--first create teams-->
-<!--{% endif %}-->
+  <!-- Grid row -->
+  <div class="row wow fadeInUp">
 
-  <!--<p><strong>Author:</strong></p> &lt;!&ndash; author detail link not yet defined &ndash;&gt;-->
+    <!-- Grid column -->
+    <div class="col-md white-text">
+        <h5>Batting Style: {{ bowler.bat|cut:"Batting style " }}</h5>
+        <h5>Bowling Style: {{ bowler.bowl|cut:"Bowling style " }}</h5>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+  </div>
+</div>
+</section>
+<br>
+<section class="bg-dark text-white text-center" style="margin-top: -10em !important;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading" style="margin-top: -1em !important;">Player Stats</h2>
+            <hr class="main" style="margin-bottom: -2em !important;">
+          </div>
+        </div>
+        <div class="row wow fadeInUp">
+          <div class="col text-center">
+            <div class="service-box mt-5 mx-auto">
+               <h1 class="text-primary mb-3 sr-icons">{{ bowler.wkts|floatformat:0 }}</h1>
+              <h3 class="mb-3">Wickets</h3>
+            </div>
+              </div>
+          <div class="col text-center">
+            <div class="service-box mt-5 mx-auto">
+               <h1 class="text-primary mb-3 sr-icons">{{ bowler.matches|floatformat:0 }}</h1>
+              <h3 class="mb-3">Matches Played</h3>
+            </div>
+          </div>
+        </div>
+           <div class="row wow fadeInUp">
+          <div class="col text-center">
+            <div class="service-box mt-5 mx-auto">
+               <h1 class="text-primary mb-3 sr-icons">{{ bowler.ave|floatformat:2 }}</h1>
+              <h3 class="mb-3">Bowling Average</h3>
+            </div>
+              </div>
+          <div class="col text-center">
+            <div class="service-box mt-5 mx-auto">
+              <h1 class="text-primary mb-3 sr-icons">{{ bowler.sr|floatformat:2 }}</h1>
+              <h3 class="mb-3">Bowling Strike Rate</h3>
+            </div>
+          </div>
+               <div class="col text-center">
+            <div class="service-box mt-5 mx-auto">
+               <h1 class="text-primary mb-3 sr-icons">{{ bowler.econ|floatformat:2 }}</h1>
+              <h3 class="mb-3">Economy Rate</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- Section: Features v.1 -->
 
 {% endblock %}
