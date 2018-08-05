@@ -1,14 +1,14 @@
 {% load staticfiles%}
 
 table.table td a:hover{
-color: #8c1222;
+color: #680814;
 }
 table.table td{
 font-size: 1.2em;
 }
 
 table.table thead th {
-    background: #8c1222;
+    background: #680814;
     font-size: 1.5em;
 }
 
@@ -44,7 +44,7 @@ legend {
 {
     font: 1rem 'Fira Sans', sans-serif;
     padding: .5rem;
-    background: #8c1222!important;
+    background: #680814!important;
     border: none;
     border-radius: 6px;
     margin: 0 auto;
@@ -52,7 +52,7 @@ legend {
 .pick-info {
     color: white;
     background-color: #ce4456;
-    border-color: #8c1222;
+    border-color: #680814;
     margin-top: 0.8em;
     margin-left: 1.5em;
     padding-top: 2px;
@@ -66,7 +66,7 @@ legend {
   text-transform: uppercase;
   padding: 0.8rem 2.1rem;
   border-radius: 0px;
-  background: #8c1222;
+  background: #680814;
 }
 
 a:hover, a:visited, a:link, a:active
@@ -79,5 +79,5 @@ text-decoration: uppercase;
 }
 hr {
   border-width: 3px;
-  border-color: #8c1222;
+  border-color: #680814;
 }

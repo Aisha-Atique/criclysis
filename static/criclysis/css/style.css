@@ -96,7 +96,7 @@ margin-bottom:-2em;
 .logo {
       font-family: 'Pacifico', cursive;
     font-size: 2.5em;
-    color: #8c1222;
+    color: #680814;
     margin-top: -0.3em;
 padding-right: 1em;}
 .logo:hover {
@@ -107,9 +107,9 @@ padding-right: 1em;}
     color: white !important;
 }
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #8c1222;
+  color: #680814;
   text-decoration: none;
-  background-color: #8c1222;
+  background-color: #680814;
 }
 .heading{
    font-family: 'Open Sans';
@@ -117,7 +117,7 @@ padding-right: 1em;}
 
 hr {
   border-width: 3px;
-  border-color: #8c1222;
+  border-color: #680814;
 }
 hr.main{
 max-width: 50px;
@@ -139,7 +139,7 @@ color: red; }
 .modal-header{ margin: -2rem 1rem 1rem 1rem;}
 
 .bg-primary {
-  background-color: #8c1222 !important;
+  background-color: #680814 !important;
 }
 
 .bg-dark {
@@ -169,8 +169,8 @@ section {
 }
 
 .btn-primary {
-  background-color: #8c1222 !important;
-  border-color: #8c1222;
+  background-color: #680814 !important;
+  border-color: #680814;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
@@ -179,7 +179,7 @@ section {
 }
 
 .text-primary {
-  color: #8c1222 !important;
+  color: #680814 !important;
 }
 
 .navbar-nav > li.nav-item > a.nav-link.active,
@@ -191,7 +191,7 @@ section {
 .pick-info {
     color: white;
     background-color: #ce4456;
-    border-color: #8c1222;
+    border-color: #680814;
     margin-top: 0.8em;
     margin-left: 1.5em;
     padding-top: 2px;
