@@ -32,7 +32,7 @@ body{
 font-size: 1em !important;
 }
 .imglogo{
-width:60px !important;
+width:50px !important;
 margin-right:-0.3em !important;
 margin-left:-0.3em !important;
 }
@@ -54,9 +54,10 @@ margin-left:-0.3em !important;
 font-size: 1em !important;
 }
 .imglogo{
-width:60px !important;
-height:60px !important;
-margin-right:-0.3em !important;
+width:50px !important;
+height:50px !important;
+margin-top:-2em !important;
+margin-right:-0.2em !important;
 margin-left:-0.3em !important;
 }
     }
@@ -88,9 +89,9 @@ font-size: 1em !important;
   background-color: #1c1c1c; }
 
 .imglogo{
-width:80px;
-height:80px;
-margin-top:-2.2em;
+width:60px;
+height:60px;
+margin-top:-2em;
 margin-bottom:-2em;
 }
 .logo {
