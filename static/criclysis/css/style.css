@@ -28,6 +28,12 @@ body{
       header{
       height: 3em;
     }
+    .logo {
+      font-family: 'Pacifico', cursive;
+    font-size: 2em !important;
+    color: #8c1222;
+    margin-top: -0.3em;
+padding-right: 1em;}
     .team a {
 font-size: 1em !important;
 }
@@ -87,8 +93,14 @@ font-size: 1em !important;
 font-size: 1.5em !important;
 }
       header{
-      height:7em;
+      height:4.5em;
     }
+    .logo {
+      font-family: 'Pacifico', cursive;
+    font-size: 2em !important;
+    color: #8c1222;
+    margin-top: -0.3em;
+padding-right: 1em;}
     }
     @media (min-width: 800px) and (max-width: 850px) {
               .navbar:not(.top-nav-collapse) {
