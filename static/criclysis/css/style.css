@@ -40,6 +40,15 @@ margin-right:-0.3em !important;
 margin-left:-0.3em !important;
 }
     }
+    @media only screen and (max-width: 350px) {
+      .logo {
+      font-family: 'Pacifico', cursive;
+    font-size: 2em !important;
+    color: #8c1222;
+    margin-top: -0.3em;
+padding-right: 1em;}
+    }
+    }
     @media only screen and (max-width: 600px) {
       html,
       body,
