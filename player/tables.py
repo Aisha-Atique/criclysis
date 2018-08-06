@@ -2,7 +2,7 @@ import django_tables2 as tables
 from django_tables2.utils import A
 from .models import Bowlers
 import django_tables2 as dt2
-from main.views import BowlerDetailView
+from main.models import UserSelect
 
 
 # class BowlerTable(dt2.Table):

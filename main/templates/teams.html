@@ -1,9 +1,9 @@
-<div class="myfooter">
-{% extends 'sidebar.html' %}
+
+    {% extends 'sidebar.html' %}
 <title>{% block title %}Teams{% endblock %}</title>
 {% block sidebar %}
 {% load staticfiles%}
-
+    <link rel="icon" href="{% static 'criclysis/img/ballicon.png' %}">
 <h1>Teams List</h1>
 <hr>
 {% if select_list %}
@@ -83,4 +83,7 @@
       <p>There are no players in any team.</p>
     {% endif %}
     </div>
+<!--<h2>Principal Component Analysis is widely used in applied multivariate data analysis, and this article shows how to motivate student interest in this topic using cricket sports data. Here, principal component analysis is successfully used to rank the cricket batsmen and bowlers who played in the 2012 Indian Premier League (IPL) competition. In particular, the first principal component is seen to explain a substantial portion of the variation in a linear combination of some commonly used measures of cricket prowess. This application provides an excellent, elementary introduction to the topic of principal component analysis.</h2>-->
+<!--<h2>Principal Component Analysis is widely used in applied multivariate data analysis, and this article shows how to motivate student interest in this topic using cricket sports data. Here, principal component analysis is successfully used to rank the cricket batsmen and bowlers who played in the 2012 Indian Premier League (IPL) competition. In particular, the first principal component is seen to explain a substantial portion of the variation in a linear combination of some commonly used measures of cricket prowess. This application provides an excellent, elementary introduction to the topic of principal component analysis.</h2>-->
+
 {% endblock %}

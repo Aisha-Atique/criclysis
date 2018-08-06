@@ -5,7 +5,7 @@ from .utils import PagedFilteredTableView
 from .models import Bowlers
 from .forms import BowlerListFormHelper
 from django.contrib.auth.mixins import LoginRequiredMixin
-from main.models import UserSelect, Team
+from main.models import UserSelect
 from django.shortcuts import render
 
 

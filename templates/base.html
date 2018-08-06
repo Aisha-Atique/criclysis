@@ -23,12 +23,15 @@
 
     <style>
     body{
+      min-height: 100%;
       font-family: 'Open Sans';
       position: relative !important;
       }
      @media (max-width: 740px) {
       html,
-      body,
+      body{
+      min-height: 100%;
+      }
       .view {
         height: 500px;
       }
@@ -41,7 +44,9 @@
     }
     @media only screen and (max-width: 600px) {
       html,
-      body,
+      body{
+      min-height: 100%;
+      }
       .view {
         height: 400px;
       }
@@ -49,11 +54,12 @@
         margin-top: 0.5em !important;
       }
       header{
-      height:4em;
+      height:4.5em;
     }
 </style>
 	</head>
 	<body>
+
     <header>
     <!-- Navbar -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
@@ -127,7 +133,7 @@
         {% block body %}
         {% endblock %}
 
-    <footer class="page-footer text-center font-small mt-4 " style="height: 125px; position: relative;">
+    <footer class="page-footer text-center font-small mt-4 " style="position: relative;">
 
     <hr class="my-4">
 
