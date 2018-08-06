@@ -19,8 +19,8 @@ class Bowlers(models.Model):
     #bat = models.TextField(choices=ROLE_CHOICES, default='RED')
     bowl = models.TextField(blank=True, null=True)
     ahp_closeness_ratio = models.FloatField(db_column='ahp_closeness_ratio', blank=True, null=True)
-    ahprank = models.FloatField(db_column='ahprank', blank=True, null=True)
-    pcarank = models.FloatField(db_column='pcarank', blank=True, null=True)
+    ahprank = models.FloatField(db_column='ahprank', blank=True, null=True, verbose_name='AHP Rank')
+    pcarank = models.FloatField(db_column='pcarank', blank=True, null=True, verbose_name='PCA Rank')
     users = models.ManyToManyField(User, through='main.UserSelect')
     # this is to show names of fields instead of objects
 

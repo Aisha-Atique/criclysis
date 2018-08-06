@@ -20,9 +20,9 @@ body{
       html,
       body,
       .view {
-        height: 500px;
+        height: 100%;
       }
-      .display-4{
+    .display-4{
         margin-top: 0.5em !important;
       }
       header{
@@ -41,7 +41,7 @@ margin-left:-0.3em !important;
       html,
       body,
       .view {
-        height: 500px;
+        height: 100%;
       }
       .display-4{
         margin-top: 0.5em !important;
@@ -66,7 +66,7 @@ margin-left:-0.3em !important;
       html,
       body,
       .view {
-        height: 650px;
+        height: 100%;
       }
           .team a {
 font-size: 1em !important;
@@ -218,4 +218,8 @@ font-size: 2em;
 
 .team a:hover{
 color: white;
+}
+
+.myfooter {
+min-height: 100% !important; position: relative;
 }
