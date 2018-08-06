@@ -50,6 +50,12 @@ margin-left:-0.3em !important;
       header{
       height: 5em;
     }
+        .logo {
+      font-family: 'Pacifico', cursive;
+    font-size: 2em !important;
+    color: #8c1222;
+    margin-top: -0.3em;
+padding-right: 1em;}
         .team a {
 font-size: 1em !important;
 }
