@@ -40,7 +40,6 @@ margin-right:-0.3em !important;
 margin-left:-0.3em !important;
 }
     }
-    }
     @media only screen and (max-width: 600px) {
       html,
       body,
@@ -87,6 +86,9 @@ font-size: 1em !important;
 .team h3 {
 font-size: 1.5em !important;
 }
+      header{
+      height:7em;
+    }
     }
     @media (min-width: 800px) and (max-width: 850px) {
               .navbar:not(.top-nav-collapse) {
