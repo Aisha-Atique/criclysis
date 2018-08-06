@@ -1,9 +1,8 @@
-
+<div style="min-height: 100% !important; margin-bottom: -125px; position: relative;">
     {% extends 'sidebar.html' %}
+    {% load staticfiles%}
 <title>{% block title %}Teams{% endblock %}</title>
 {% block sidebar %}
-{% load staticfiles%}
-    <link rel="icon" href="{% static 'criclysis/img/ballicon.png' %}">
 <h1>Teams List</h1>
 <hr>
 {% if select_list %}
