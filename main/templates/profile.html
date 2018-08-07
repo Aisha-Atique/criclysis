@@ -2,17 +2,55 @@
 <title>{% block title %}{{ user.get_username }}{% endblock %}</title>
 {% load staticfiles%}
   {% block sidebar %}
-{% if not team %}
-<form action="{% url 'select_team' %}" method="post" style="display: inline;" class="form-control form-control-lg">
+<h1>Profile</h1>
+<hr>
+<div class="card" style="margin-top: 2em !important;">
+  <div class="card-body">
+      {% if not team %}
+    <h4 class="card-title">Create Teams</h4>
+<div class="alert alert-info" role="alert">First create teams to start selecting players.</div>
+<form class="form-inline" action="{% url 'select_team' %}" method="post">
+    <div class="form-group">
     {% csrf_token %}
-    <input type="number" id="start" name="team_number" min="1" max="5" value="1"/>
-    <label for="start">select in range of 1 to 5</label>
-    <button type="submit" class="btn btn-danger btn-xs">
+    <input type="number" id="start" class="form-control mb-2 mr-sm-2" name="team_number" min="1" max="5" value="1" />
+    <label for="start">Select in range of 1 to 5</label>
+    <button type="submit" class="btn btn-light">
         <span class="glyphicon glyphicon-remove"></span>&nbsp; create teams
     </button>
+    </div>
 </form>
-{% else %}
-you have chosen {{ total_teams }} teams <br>
-your picking order is {{ all_picks }}
+      {% else %}
+      <h5>You have chosen {{ total_teams }} Teams</h5> <br>
+<h3>The picking order is {{ all_picks|slice:"-2"  }}.</h3>
+      <h3>It is Team {{ pick }} turn.</h3>
 {% endif %}
+        </div>
+</div>
+
+
+<section class="bg-primary" style="margin-top: -5em !important;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-white">
+            <h2 class="section-heading wow fadeInUp text-center">How It Works</h2>
+            <hr class="main light my-4">
+              <i class="fa fa-plus fa-2x fa-pull-left"></i><h4> Create Teams</h4>
+              <p class="text-faded mb-4">Create teams in range of 1 to 5, each team can have 16 players.<br>After creating
+                  teams a random order will be assigned for each team to pick a player that each team can pick on its turn.</p>
+              <i class="fa fa-pie-chart fa-2x fa-pull-left"></i><h4> Analyze Players</h4>
+              <p class="text-faded mb-4">Analyze player performances by there rankings for which Data Analysis Algorithms
+              i.e PCA and AHP have been designed.<br>You can also analyze each player's stats provided on their profiles.
+              <br> You can filter out players of your choice.</p>
+              <i class="fa fa-check-circle fa-2x fa-pull-left"></i><h4> Select Players</h4>
+              <p class="text-faded mb-4">After satisfied with your analysis you can select any player available by visiting its profile.
+              Remember and be careful to select player on that team turn.</p>
+              <i class="fa fa-list fa-2x fa-pull-left"></i><h4> List Teams</h4>
+              <p class="text-faded mb-4">After selecting you can view teams players.</p>
+              <i class="fa fa-refresh fa-2x fa-pull-left"></i><h4> Reset Player and Teams</h4>
+              <p class="text-faded mb-4">If not statisfied in settings you can reset all players of teams or even all
+                  teams anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   {% endblock %}

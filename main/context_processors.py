@@ -24,7 +24,7 @@ def total_check(request):
         if UserSelect.objects.filter(user=request.user).exists():
             all_select = UserSelect.objects.filter(user=request.user).count()
             team = get_object_or_404(Team, user=request.user)
-            total = team.total * 2
+            total = team.total * 16
             if all_select == total:
                 info = "All Teams Created"
                 return {'info': info}

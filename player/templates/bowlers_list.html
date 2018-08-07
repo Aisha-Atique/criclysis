@@ -26,15 +26,6 @@
 {% block content %}
 <h1>Bowlers</h1>
 <hr>
-{% if select_list %}
-
-          {% for select in select_list %}
-<li>
-          {{ select.bowler }} Selected by{{ select.get_team_display }}
-</li>
-          {% endfor %}
-
-{%endif%}
 <div class="wow fadeIn">
 {% render_table table %}
 </div>
