@@ -2,6 +2,7 @@
 {% block title %}Register{% endblock %}
 {% block body %}
 {% load staticfiles%}
+<div class="hidefooter">
 <div class="container-fluid">
 <div class="row wow fadeInDown">
   <div class="col-md-4 col-sm-4 col-xs-12"></div>
@@ -69,20 +70,4 @@
 </div>
 </div>
 {% endblock %}
-
-    <!--{% csrf_token %}-->
-    <!--{{form.non_field_errors}}-->
-    <!--<td>{{ form.username.label_tag }} {% if field.field.required %} * {% endif %}</td>-->
-  <!--<td>{{ form.username }}</td>-->
-        <!--<table>-->
-            <!--{% for field in form %}-->
-  <!--{{field.label}} {% if field.field.required %} * {% endif %}-->
-  <!--{{field}}-->
-  <!--{{field.errors}}-->
-<!--{% endfor %}-->
-        <!--</table>-->
-        <!--<div class="text-center mt-4 mb-2">-->
-                    <!--<button class="btn btn-dark">Send-->
-                    <!--</button>-->
-                <!--</div>-->
-
+</div>

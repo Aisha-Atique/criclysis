@@ -1,0 +1,12 @@
+{% extends 'sidebar.html' %}
+<title>{% block title %}Team Analysis{% endblock %}</title>
+{% load staticfiles%}
+  {% block sidebar %}
+<h1>Team Analysis</h1>
+<hr>
+
+{{ bowlers }}<br>
+{{ batsmen }}<br>
+{{ all_players }}
+
+{% endblock %}

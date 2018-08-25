@@ -20,7 +20,8 @@
     </div>
 </form>
       {% else %}
-      <h5>You have chosen {{ total_teams }} Teams</h5> <br>
+
+      <h5>You have chosen {{ total_teams }} Teams for the Drafting</h5> <br>
 <h3>The picking order is {{ all_picks|slice:"-2"  }}.</h3>
       <h3>It is Team {{ pick }} turn.</h3>
 {% endif %}

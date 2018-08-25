@@ -8,6 +8,19 @@
     <title>{% block title %}Criclysis{% endblock %}</title>
 
     {% load staticfiles %}
+       <script type="text/javascript" src="{% static 'fusioncharts.js' %}"></script>
+   <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.fint.js' %}"></script>
+    <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.ocean.js' %}"></script>
+    <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.carbon.js' %}"></script>
+    <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.zune.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.charts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.gantt.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.maps.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.powercharts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.ssgrid.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.treemap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.widgets.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.zoomscatter.js' %}"></script>
     <link rel="icon" href="{% static 'criclysis/img/ballicon.png' %}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -138,7 +151,7 @@
         {% block body %}
         {% endblock %}
 
-    <footer class="page-footer text-center font-small mt-4 " style="position: relative;">
+    <footer class="page-footer text-center font-small mt-4 " style="position: relative;" id="check">
 
     <hr class="my-4">
 
@@ -197,7 +210,20 @@
     <script type="text/javascript" src="{% static 'criclysis/js/creative.js' %}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript">
+   <script type="text/javascript" src="{% static 'fusioncharts.js' %}"></script>
+   <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.fint.js' %}"></script>
+    <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.ocean.js' %}"></script>
+    <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.carbon.js' %}"></script>
+    <script type="text/javascript" src="{% static 'themes/fusioncharts.theme.zune.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.charts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.gantt.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.maps.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.powercharts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.ssgrid.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.treemap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.widgets.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fusioncharts.zoomscatter.js' %}"></script>
+    <script type="text/javascript">
 new WOW().init();
 $(document).ready(function () {
         $("#sidebar").mCustomScrollbar({

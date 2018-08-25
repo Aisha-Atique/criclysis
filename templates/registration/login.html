@@ -2,6 +2,7 @@
 {% block title %}Login{% endblock %}
 {% block body %}
 {% load staticfiles%}
+<div class="hidefooter">
 <div class="container-fluid">
 <div class="row wow fadeInDown">
   <div class="col-md-4 col-sm-4 col-xs-12"></div>
@@ -31,6 +32,7 @@
                     <i class="fa fa-user prefix"></i>
                     <td>{{ form.username.label_tag }}</td>
   <td>{{ form.username }}</td>
+    <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="{% url 'get-user-form' %}" class="dark-grey-text ml-1 font-weight-bold"> Username?</a></p>
                 </div>
 <div class="md-form form-sm">
                     <i class="fa fa-lock prefix"></i>
@@ -56,3 +58,4 @@
 </div>
 </div>
 {% endblock %}
+</div>

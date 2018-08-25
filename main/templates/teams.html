@@ -7,31 +7,48 @@
 <hr>
 {% if select_list %}
 <div class="row">
+
+
     {% if total_teams >= 1 %}
 <div class="col">
     <div class="team">
-<h3 class="text-center">Team A</h3>
+        <!-- TEAM A -->
+        <h3 class="text-center"><a href="{% url 'team' 1 %}">Team A</a></h3>
         <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team A" %}
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }}
-            ({{ select.bowler.Playing_Role|cut:"Playing role "  }}) </a> <br/>
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} {{ select.batsman.Playing_Role|cut:"Playing role "  }}</a> <br/>
+        {% if select.bowler %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.bowler }}</a><br>
+        <span>({{ select.bowler.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+        {% if select.batsman %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.batsman }}</a><br>
+        <span>({{ select.batsman.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
 {% endif %}
 {% endfor %}
     </div>
     </div>
     {% endif %}
+
+
     {% if total_teams >= 2 %}
     <div class="col">
         <div class="team">
-<h3 class="text-center">Team B</h3>
+            <!-- TEAM B -->
+<h3 class="text-center"><a href="{% url 'team' 2 %}">Team B</a></h3>
             <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team B" %}
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} ({{ select.bowler.Playing_Role|cut:"Playing role "  }})</a> <br/>
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} {{ select.batsman.Playing_Role|cut:"Playing role "  }}</a> <br/>
-{% endif %}
+        {% if select.bowler %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.bowler }}</a><br>
+        <span>({{ select.bowler.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+        {% if select.batsman %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.batsman }}</a><br>
+        <span>({{ select.batsman.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+            {% endif %}
 {% endfor %}
     </div>
     </div>
@@ -43,9 +60,15 @@
             <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team C" %}
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} ({{ select.bowler.Playing_Role|cut:"Playing role "  }})</a> <br/>
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} {{ select.batsman.Playing_Role|cut:"Playing role "  }}</a> <br/>
-{% endif %}
+        {% if select.bowler %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.bowler }}</a><br>
+        <span>({{ select.bowler.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+        {% if select.batsman %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.batsman }}</a><br>
+        <span>({{ select.batsman.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+            {% endif %}
 {% endfor %}
     </div>
     </div>
@@ -57,9 +80,15 @@
             <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team D" %}
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} ({{ select.bowler.Playing_Role|cut:"Playing role "  }})</a> <br/>
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} {{ select.batsman.Playing_Role|cut:"Playing role "  }}</a> <br/>
-{% endif %}
+        {% if select.bowler %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.bowler }}</a><br>
+        <span>({{ select.bowler.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+        {% if select.batsman %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.batsman }}</a><br>
+        <span>({{ select.batsman.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+            {% endif %}
 {% endfor %}
     </div>
     </div>
@@ -71,9 +100,15 @@
 <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team E" %}
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.bowler|default_if_none:""  }} ({{ select.bowler.Playing_Role|cut:"Playing role "  }})</a> <br/>
-        <a href="{{ select.bowler.get_absolute_url }}">{{ select.batsman|default_if_none:""  }} {{ select.batsman.Playing_Role|cut:"Playing role "  }}</a> <br/>
-{% endif %}
+        {% if select.bowler %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.bowler }}</a><br>
+        <span>({{ select.bowler.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+        {% if select.batsman %}
+        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.batsman }}</a><br>
+        <span>({{ select.batsman.role|cut:"Playing role "  }})</span> <br><br>
+        {% endif %}
+    {% endif %}
 {% endfor %}
     </div>
     </div>

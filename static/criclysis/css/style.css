@@ -267,3 +267,6 @@ font-size: 2em;
 .team a:hover{
 color: white;
 }
+.hidefooter #check{
+display: none;
+}

@@ -1,12 +1,10 @@
 
-from .tables import BowlerTable
+from .tables import BowlerTable, BowlerTablePCA, BatsmenTablePCA, BatsmenTableAHP
 from .filters import BowlerListFilter
 from .utils import PagedFilteredTableView
-from .models import Bowlers
+from .models import Bowlers, Batsmen
 from .forms import BowlerListFormHelper
 from django.contrib.auth.mixins import LoginRequiredMixin
-from main.models import UserSelect
-from django.shortcuts import render
 
 
 class BowlerList(LoginRequiredMixin, PagedFilteredTableView):
@@ -16,7 +14,28 @@ class BowlerList(LoginRequiredMixin, PagedFilteredTableView):
     filter_class = BowlerListFilter
     formhelper_class = BowlerListFormHelper
 
-    def get_context_data(self, **kwargs):
-        context = super(BowlerList, self).get_context_data(**kwargs)
-        context['select_list'] = UserSelect.objects.filter(user=self.request.user)
-        return context
+
+class BowlerListPCA(LoginRequiredMixin, PagedFilteredTableView):
+    model = Bowlers
+    template_name = 'pca.html'
+    table_class = BowlerTablePCA
+    filter_class = BowlerListFilter
+    formhelper_class = BowlerListFormHelper
+
+
+class BatsmanListPCA(LoginRequiredMixin, PagedFilteredTableView):
+    model = Batsmen
+    template_name = 'pca_batsman.html'
+    table_class = BatsmenTablePCA
+    filter_class = BowlerListFilter
+    formhelper_class = BowlerListFormHelper
+
+
+class BatsmanListAHP(LoginRequiredMixin, PagedFilteredTableView):
+    model = Batsmen
+    template_name = 'ahp_batsman.html'
+    table_class = BatsmenTableAHP
+    filter_class = BowlerListFilter
+    formhelper_class = BowlerListFormHelper
+
+

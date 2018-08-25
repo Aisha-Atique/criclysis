@@ -18,13 +18,24 @@
                     <a class="example hoverable" href="{% url 'profile' %}">Profile</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle example hoverable">Players</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <a href="#home1Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle example hoverable">Batsmen</a>
+                    <ul class="collapse list-unstyled" id="home1Submenu">
                         <li>
-                            <a class="example hoverable" href="{% url 'BowlerList' %}">Bowlers</a>
+                            <a class="example hoverable" href="{% url 'BatsmanAHP' %}">AHP</a>
                         </li>
                         <li>
-                            <a class="example hoverable" href="{% url 'batsmen' %}">Batsmen</a>
+                            <a class="example hoverable" href="{% url 'BatsmanPCA' %}">PCA</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle example hoverable">Bowlers</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a class="example hoverable" href="{% url 'BowlerList' %}">AHP</a>
+                        </li>
+                        <li>
+                            <a class="example hoverable" href="{% url 'BowlerListpca' %}">PCA</a>
                         </li>
                     </ul>
                 </li>
@@ -41,10 +52,10 @@
 
             <ul class="list-unstyled CTAs ">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                    <a href="{% url 'logout'%}?next={{request.path}}" class="download" style="color: #680814;">Logout</a>
                 </li>
                 <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                    <a href="{% url 'home' %}">Back to Home</a>
                 </li>
             </ul>
           </div>

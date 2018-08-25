@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View, TemplateView
 from .forms import UserForm
@@ -8,6 +8,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 import random
+from .fusioncharts import FusionCharts
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def index(request):
@@ -33,75 +36,56 @@ class Settings(LoginRequiredMixin, TemplateView):
         return context
 
 
-class BowlerListView(LoginRequiredMixin, generic.ListView):
-    model = Bowler
-    context_object_name = 'bowler_list'  # your own name for the list as a template variable
-    template_name = 'bowlers.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(BowlerListView, self).get_context_data(**kwargs)
-        context['select_list'] = UserSelect.objects.filter(user=self.request.user)
-        context['team'] = Team.objects.filter(user=self.request.user)
-        return context
-
-    def get_queryset(self):
-        return Bowler.objects.all()
-
-
-class BatsmanListView(LoginRequiredMixin, generic.ListView):
-    model = Batsman
-    context_object_name = 'batsman_list'  # your own name for the list as a template variable
-    template_name = 'batsmen.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(BatsmanListView, self).get_context_data(**kwargs)
-        context['select_list'] = UserSelect.objects.filter(user=self.request.user)
-        context['team'] = Team.objects.filter(user=self.request.user)
-        return context
-
-    def get_queryset(self):
-        return Batsman.objects.all()
-
-
-def detail(request, pk):
+def bowler_detail(request, pk):
     if not request.user.is_authenticated():
         return render(request, 'registration/login.html')
     else:
-        bowler = get_object_or_404(Bowlers, pk=pk)
+        bowler = Bowlers.objects.get(pk=pk)
         select_list = UserSelect.objects.filter(user=request.user, bowler=pk)
         all_select = UserSelect.objects.filter(user=request.user).count()
         team = Team.objects.filter(user=request.user)
+        dataSource = {}
+        dataSource['chart'] = {
+            "caption": "last year",
+            "subCaption": "Harry's SuperMart",
+            "xAxisName": "Month",
+            "yAxisName": "Revenues (In USD)",
+            "numberPrefix": "$",
+            "theme": "zune",
+            "type": "doughnut2d"
+        }
+        dataSource['data'] = []
+        # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
+        data = {}
+        data['label'] = bowler.name
+        data['value'] = bowler.ave
+        dataSource['data'].append(data)
+        column2D = FusionCharts("doughnut2d", "ex1", "600", "350", "chart-1", "json", dataSource)
         context = {
             'bowler': bowler,
             'select_list': select_list,
             'all_select': all_select,
             'team': team,
+            'output': column2D.render()
         }
         return render(request, 'bowler_detail.html', context)
 
 
-class BowlerDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Bowler
-    template_name = 'bowler_detail.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(BowlerDetailView, self).get_context_data(**kwargs)
-        context['select_list'] = UserSelect.objects.filter(user=self.request.user, bowler=self.kwargs.get('pk'))
-        context['all_select'] = UserSelect.objects.filter(user=self.request.user).count()
-        context['team'] = Team.objects.filter(user=self.request.user)
-        return context
-
-
-class BatsmanDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Batsman
-    template_name = 'batsman_detail.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(BatsmanDetailView, self).get_context_data(**kwargs)
-        context['select_list'] = UserSelect.objects.filter(user=self.request.user, batsman=self.kwargs.get('pk'))
-        context['all_select'] = UserSelect.objects.filter(user=self.request.user).count()
-        context['team'] = Team.objects.filter(user=self.request.user)
-        return context
+def batsman_detail(request, pk):
+    if not request.user.is_authenticated():
+        return render(request, 'registration/login.html')
+    else:
+        batsman = Batsmen.objects.get(pk=pk)
+        select_list = UserSelect.objects.filter(user=request.user, batsman=pk)
+        all_select = UserSelect.objects.filter(user=request.user).count()
+        team = Team.objects.filter(user=request.user)
+        context = {
+            'batsman': batsman,
+            'select_list': select_list,
+            'all_select': all_select,
+            'team': team,
+        }
+        return render(request, 'batsman_detail.html', context)
 
 
 def select_bowler(request, pk):
@@ -122,13 +106,13 @@ def select_bowler(request, pk):
 
 
 def select_batsman(request, pk):
-    bowler = get_object_or_404(Batsman, pk=pk)
+    batsman = get_object_or_404(Batsmen, pk=pk)
     team2 = Team.objects.get(user=request.user)
-    if UserSelect.objects.filter(user=request.user, batsman=bowler, ).exists():
+    if UserSelect.objects.filter(user=request.user, batsman=batsman, ).exists():
         messages.error(request, 'Already selected')
         return redirect(reverse('batsman-detail', args=(pk,)))
     else:
-        UserSelect.objects.create(user=request.user, batsman=bowler, team=team2.arr[team2.counter])
+        UserSelect.objects.create(user=request.user, batsman=batsman, team=team2.arr[team2.counter])
         if team2.counter == team2.total - 1:
             team2.counter = 0
             team2.save()
@@ -188,7 +172,7 @@ class UserFormView(View):
 
                 if user.is_active:
                     login(request, user)
-                    return redirect('home')
+                    return redirect('profile')
 
         return render(request, self.template_name, {'form': form})
 
@@ -200,3 +184,41 @@ class SelectedByUserListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return UserSelect.objects.filter(user=self.request.user)
+
+
+def email_username(request):
+    user = User.objects.get(email=request.POST['email'])
+    subject = 'Forgot your username'
+    message = 'Hi, ' + user.first_name + ' ' + user.last_name + ' as you requested for your username here is your username ' + user.get_username()
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [user.email, ]
+    send_mail(subject, message, email_from, recipient_list)
+    return redirect(reverse('get-user-name'))
+
+
+class EmailUser(TemplateView):
+    template_name = 'registration/get_user_name.html'
+
+
+class EmailUserForm(TemplateView):
+    template_name = 'registration/get_user_form.html'
+
+
+def team(request, pk): #team wale page se yahan ayenge to jo team pe click krenge uska ayega data 
+    user_sel = UserSelect.objects.filter(user=request.user, team=pk)
+    batsmen = []
+    bowlers = []
+    all_players = []
+    for i in user_sel:
+        if i.batsman:
+            batsmen.append(i.batsman)
+            all_players.append(i.batsman)
+        if i.bowler:
+            bowlers.append(i.bowler)
+            all_players.append(i.bowler)
+    context = {
+        'all_players': all_players,
+        'batsmen': batsmen,
+        'bowlers': bowlers,
+    }
+    return render(request, 'team_analysis.html', context)

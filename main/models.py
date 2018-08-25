@@ -6,28 +6,6 @@ from player import *
 from player.models import *
 
 
-class Bowler(models.Model):
-    title = models.CharField(max_length=200)
-    # users = models.ManyToManyField(User, through='UserSelect')
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('bowler-detail', args=[str(self.id)])
-
-
-class Batsman(models.Model):
-    title = models.CharField(max_length=200)
-    users = models.ManyToManyField(User, through='UserSelect')
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('batsman-detail', args=[str(self.id)])
-
-
 class Team(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     counter = models.IntegerField(default=0)
@@ -41,7 +19,7 @@ class Team(models.Model):
 class UserSelect(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bowler = models.ForeignKey(Bowlers, on_delete=models.CASCADE, related_name='bowlers', null=True, blank=True)
-    batsman = models.ForeignKey(Batsman, on_delete=models.CASCADE, related_name='batsman', null=True, blank=True)
+    batsman = models.ForeignKey(Batsmen, on_delete=models.CASCADE, related_name='batsman', null=True, blank=True)
     TEAM_STATUS = (
         ('1', 'Team A'),
         ('2', 'Team B'),
