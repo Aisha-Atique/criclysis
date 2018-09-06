@@ -6,14 +6,15 @@
 <h1>Teams List</h1>
 <hr>
 {% if select_list %}
+<div class="alert alert-info" role="alert">
+  Click on Teams to view Team Analysis
+</div>
 <div class="row">
-
-
     {% if total_teams >= 1 %}
 <div class="col">
     <div class="team">
         <!-- TEAM A -->
-        <h3 class="text-center"><a href="{% url 'team' 1 %}">Team A</a></h3>
+        <h4 class="text-center teams"><a href="{% url 'team' 1 %}" class="teamcolor">Team A</a></h4>
         <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team A" %}
@@ -22,7 +23,7 @@
         <span>({{ select.bowler.role|cut:"Playing role "  }})</span> <br><br>
         {% endif %}
         {% if select.batsman %}
-        <a style="line-height: 1em;" href="{{ select.bowler.get_absolute_url }}">{{ select.batsman }}</a><br>
+        <a style="line-height: 1em;" href="{{ select.batsman.get_absolute_url }}">{{ select.batsman }}</a><br>
         <span>({{ select.batsman.role|cut:"Playing role "  }})</span> <br><br>
         {% endif %}
 {% endif %}
@@ -36,7 +37,7 @@
     <div class="col">
         <div class="team">
             <!-- TEAM B -->
-<h3 class="text-center"><a href="{% url 'team' 2 %}">Team B</a></h3>
+<h4 class="text-center"><a href="{% url 'team' 2 %}" class="teamcolor">Team B</a></h4>
             <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team B" %}
@@ -56,7 +57,7 @@
     {% if total_teams >= 3 %}
     <div class="col">
         <div class="team">
-<h3 class="text-center">Team C</h3>
+<h4 class="text-center"><a href="{% url 'team' 3 %}" class="teamcolor">Team C</a></h4>
             <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team C" %}
@@ -76,7 +77,7 @@
     {% if total_teams >= 4 %}
     <div class="col">
         <div class="team">
-<h3 class="text-center">Team D</h3>
+<h4 class="text-center"><a href="{% url 'team' 4 %}" class="teamcolor">Team D</a></h4>
             <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team D" %}
@@ -96,7 +97,7 @@
     {% if total_teams >= 5 %}
     <div class="col">
 <div class="team">
-<h3 class="text-center">Team E</h3>
+<h4 class="text-center"><a href="{% url 'team' 5 %}" class="teamcolor">Team E</a></h4>
 <hr class="main">
 {% for select in select_list %}
 {% if select.get_team_display == "Team E" %}

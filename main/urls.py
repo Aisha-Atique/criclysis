@@ -17,5 +17,5 @@ urlpatterns = [
     url(r'^getuser/$', views.email_username, name='get-user'),
     url(r'^getuserdone/$', views.EmailUser.as_view(), name='get-user-name'),
     url(r'^getuserform/$', views.EmailUserForm.as_view(), name='get-user-form'),
-    url(r'^team_analysis/(?P<pk>\d+)/$', views.team, name='team')
+    url(r'^team_analysis/(?P<pk>\d+)/$', views.team, name='team'),
 ]

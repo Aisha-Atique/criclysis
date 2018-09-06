@@ -204,7 +204,7 @@ class EmailUserForm(TemplateView):
     template_name = 'registration/get_user_form.html'
 
 
-def team(request, pk): #team wale page se yahan ayenge to jo team pe click krenge uska ayega data 
+def team(request, pk):
     user_sel = UserSelect.objects.filter(user=request.user, team=pk)
     batsmen = []
     bowlers = []
@@ -216,9 +216,58 @@ def team(request, pk): #team wale page se yahan ayenge to jo team pe click kreng
         if i.bowler:
             bowlers.append(i.bowler)
             all_players.append(i.bowler)
+    dataSource = {}
+    dataSource['chart'] = {
+        "caption": "last year",
+        "subCaption": "Harry's SuperMart",
+        "xAxisName": "Month",
+        "yAxisName": "Revenues (In USD)",
+        "numberPrefix": "$",
+        "theme": "zune",
+        "type": "doughnut2d"
+    }
+
+    dataSource['data'] = []
+    # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
+    for key in batsmen:
+        data = {}
+        data['label'] = key.name
+        data['value'] = key.sr
+
+        dataSource['data'].append(data)
+
+    column2D = FusionCharts("doughnut2d", "ex1", "600", "350", "chart-1", "json", dataSource)
+
+    dataSource2 = {}
+    dataSource2['chart'] = {
+        "caption": "last year",
+        "subCaption": "Harry's SuperMart",
+        "xAxisName": "Month",
+        "yAxisName": "Revenues (In USD)",
+        "numberPrefix": "$",
+        "theme": "zune",
+        "type": "doughnut2d"
+    }
+
+    dataSource2['data'] = []
+
+    for key in bowlers:
+        data = {}
+        data['label'] = key.name
+        data['value'] = key.sr
+
+        dataSource2['data'].append(data)
+
+    # Create an object for the Column 2D chart using the FusionCharts class constructor
+    column = FusionCharts("doughnut2d", "ex2", "600", "350", "chart-2", "json", dataSource2)
     context = {
         'all_players': all_players,
         'batsmen': batsmen,
         'bowlers': bowlers,
+        'output': column2D.render(),
+        'output2': column.render()
     }
+
     return render(request, 'team_analysis.html', context)
+
+

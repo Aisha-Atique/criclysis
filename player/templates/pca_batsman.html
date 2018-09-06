@@ -30,7 +30,21 @@
 <div class="wow fadeIn">
 {% render_table table %}
 </div>
+<!--Dropdown primary-->
+ <div class="dropdown float-right">
 
+     <!--Trigger-->
+     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By</button>
+
+
+     <!--Menu-->
+     <div class="dropdown-menu dropdown-primary">
+        <a class="dropdown-item" href="http://127.0.0.1:8000/batsmenpca/?sort=-hardhitter">Top Hard Hitters</a>
+         <a class="dropdown-item" href="http://127.0.0.1:8000/batsmenpca/?sort=-finisher">Top Finishers</a>
+         <a class="dropdown-item" href="http://127.0.0.1:8000/batsmenpca/?sort=-fifty">Highest Fifties</a>
+     </div>
+ </div>
+ <!--/Dropdown primary-->
 
 <form action="" method="get">
 {% crispy filter.form filter.form.helper %}

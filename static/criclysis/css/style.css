@@ -270,3 +270,9 @@ color: white;
 .hidefooter #check{
 display: none;
 }
+.teamcolor {
+color: white !important;
+}
+.teamcolor:hover {
+font-size: 1.7em;
+}
