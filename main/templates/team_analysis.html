@@ -2,20 +2,45 @@
 <title>{% block title %}Team Analysis{% endblock %}</title>
 {% load staticfiles%}
   {% block sidebar %}
-<h1>Team Analysis</h1>
+<h1>Team Analysis Visual Bot  </h1>
 <hr>
-<!--{{bowlers}}<br>-->
-<!--{{batsmen}}<br>-->
-<!--{{all_players}}-->
-<h3>chart </h3>
-<table class="paagal">
+
+<table>
     <tr>
         <th><h1>Batsmen</h1></th>
         <th><h1>Bowlers</h1></th>
     </tr>
     <tr>
         <td><div id="chart-1">{{ output|safe }}</div></td>
-        <td><div id="chart-2">{{ output2|safe }}</div></td>
+        <td><div id="chart-9">{{ output9|safe }}</div></td>
     </tr>
+    <tr>
+        <td><div id="chart-2">{{ output2|safe }}</div></td>
+        <td><div id="chart-10">{{ output10|safe }}</div></td>
+    </tr>
+    <tr>
+        <td><div id="chart-5">{{ output5|safe }}</div></td>
+        <td><div id="chart-13">{{ output13|safe }}</div></td>
+    </tr>
+    <tr>
+        <td><div id="chart-3">{{ output3|safe }}</div></td>
+        <td><div id="chart-11">{{ output11|safe }}</div></td>
+    </tr>
+    <tr>
+        <td><div id="chart-4">{{ output5|safe }}</div></td>
+        <td><div id="chart-12">{{ output12|safe }}</div></td>
+    </tr>
+    <tr>
+        <td><div id="chart-7">{{ output5|safe }}</div></td>
+        <td><div id="chart-14">{{ output12|safe }}</div></td>
+    </tr>
+    <tr>
+        <td><div id="chart-8">{{ output5|safe }}</div></td>
+        <td><div id="chart-15">{{ output12|safe }}</div></td>
+    </tr>
+
+
+
+
 </table>
 {% endblock %}

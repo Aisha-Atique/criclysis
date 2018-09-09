@@ -45,6 +45,8 @@ class Batsmen(models.Model):
     finisher = models.FloatField(db_column='Finisher', blank=True, null=True)  # Field name made lowercase.
     hf = models.FloatField(db_column='HF', blank=True, null=True)  # Field name made lowercase.
     fifty = models.FloatField(db_column='Fifty', blank=True, null=True)  # Field name made lowercase.
+    zeros = models.FloatField(db_column='Zeros', blank=True, null=True)  # Field name made lowercase.
+    centuries = models.FloatField(db_column='Centuries', blank=True, null=True)  # Field name made lowercase.
     id = models.IntegerField(unique=True, null=False, primary_key=True)
     role = models.TextField(blank=True, null=True, verbose_name='Playing Role', choices=ROLE_CHOICES)
     bat = models.TextField(blank=True, null=True)

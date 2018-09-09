@@ -28,12 +28,13 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white wow fadeInUp">We've got what you need!</h2>
+            <h2 class="section-heading text-white wow fadeInUp">We've got what you seek !</h2>
             <hr class="main light my-4">
-            <p class="text-faded mb-4">Start creating your Leagues and Teams in just one click! We provide Analysis on
-            T20 players performances. With our provided rankings and drafting system start drafting for your players now!!
-            total 400 players.</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'register' %}">Get Started!</a>
+            <p class="text-faded mb-4">Player analytics is a growing trend in professional sports and will have a wider impact on the entire sports industry. Any team that does not apply them to its fullest extent is at a competitive disadvantage.
+If you donot want to be at the downside then Criclysis is the miracle !</p>
+            <p class="text-faded mb-4">The cricket analytics community seems to be shaping up pretty well, and there seems to be a lot of enthusiasm for it.</p>
+            <p class="text-faded mb-4">Big Data in Sports has a vital role to play in decision making in future by recording the experiences and predicting behaviors based on cricket data.</p>
+              <a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'register' %}">Get Started!</a>
           </div>
         </div>
       </div>
@@ -52,23 +53,23 @@
         <div class="row wow fadeInUp">
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Sturdy Templates</h3>
-              <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+              <i class="fa fa-4x fa-file-text-o text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Performance Based Rankings</h3>
+              <p class="text-muted mb-0">We provide optimized Players Rankings</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Ready to Ship</h3>
-              <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+              <i class="fa fa-4x fa-check-square-o text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Drafting arena</h3>
+              <p class="text-muted mb-0">Build your own franchise team </p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Up to Date</h3>
-              <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+              <i class="fa fa-4x fa-bar-chart text-primary mb-3 sr-icons"></i>
+              <h3 class="mb-3">Visual Bot</h3>
+              <p class="text-muted mb-0">Optimize your team through Visual Team Analysis</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
@@ -88,14 +89,24 @@
         <div class="row">
           <div class="col-lg-6 " style="border-right: 1px solid #ccc;">
             <div class="service-box mt-2 mx-auto">
-              <h3 class="mb-3">PCA (Principal Component Analysis)</h3>
-              <p class="text-muted mb-0">We update dependencies to keep things fresh. </p>
+              <h3 class="mb-3">PCA</h3>
+              <p class="text-muted mb-0">There are several indicators available to measure the
+                  various contributions of prized athletes. Unfortunately, these indicators are generally highly correlated,
+                  making it difficult to judge overall player performance.<br>Principal Component Analysis is a technique
+                  used to emphasize variation, removes redundancy and brings out strong patterns.<br>It focuses not only
+                on evaluating performances of players but also finds new players for the teams.
+                  Ranking of all players is generated with weighted-average approach. </p>
             </div>
           </div>
           <div class="col-lg-6 ">
             <div class="service-box mt-2 mx-auto">
               <h3 class="mb-3">AHP</h3>
-              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+              <p class="text-muted mb-0">Analytical Hierarchy Process is a Multi Criteria Decision
+                  Method which takes numerous attributes of cricket as criteria's and scale them
+                  according to preferences. Weights are assigned to every criteria, perform a consistency
+                  check so that you wont have wrong predictions.Players are ranked using Technique for Order
+                  Preference by Similarity to Ideal Solution (TOPSIS) which then generates ranking of players
+                  accordingly.</p>
             </div>
           </div>
         </div>
@@ -121,17 +132,15 @@
         <h6 class="font-weight-bold grey-text mb-3">Developer</h6>
         <p class="grey-text">Computer Systems Engineer from NED University</p>
         <!-- Facebook-->
-        <a class="p-2 fa-lg fb-ic">
+          <a class="p-2 fa-lg tw-ic">
+              <i class="fa fa-envelope"><h6>khadijazaki520@outlook.com</h6></i>
+        </a>
+        <a class="p-2 fa-lg fb-ic maincolor" href="http://www.linkedin.com/in/khadija-tul-kubra-zaki-264549139/">
           <i class="fa fa-linkedin"> </i>
         </a>
         <!-- Twitter -->
-        <a class="p-2 fa-lg tw-ic">
-          <i class="fa fa-envelope"> </i>
-        </a>
-        <!--Dribbble -->
-        <a class="p-2 fa-lg dribbble-ic">
-          <i class="fa fa-facebook"> </i>
-        </a>
+
+
       </div>
     </div>
     <!-- Grid column -->
@@ -139,24 +148,22 @@
     <!-- Grid column -->
     <div class="col-lg-6 mb-5 d-md-flex justify-content-between">
       <div class="avatar mb-md-0 mb-4 mx-4">
-        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded z-depth-1" alt="Sample avatar">
+        <img src="{% static 'criclysis/img/aisha.png' %}" class="rounded z-depth-1" alt="Sample avatar">
       </div>
       <div class="mx-4">
         <h4 class="font-weight-bold mb-3">Aisha Atique</h4>
         <h6 class="font-weight-bold grey-text mb-3">Developer</h6>
         <p class="grey-text">Computer Systems Engineer from NED University</p>
         <!-- Facebook-->
-        <a class="p-2 fa-lg fb-ic">
-          <i class="fa fa-linkedin"> </i>
-        </a>
+
         <!-- Twitter -->
         <a class="p-2 fa-lg tw-ic">
-          <i class="fa fa-envelope"> </i>
+          <i class="fa fa-envelope"><h6>aishaatique1@yahoo.com</h6></i>
+        </a>
+        <a class="p-2 fa-lg fb-ic maincolor" href="http://www.linkedin.com/in/khadija-tul-kubra-zaki-264549139/">
+          <i class="fa fa-linkedin"></i>
         </a>
         <!--Dribbble -->
-        <a class="p-2 fa-lg dribbble-ic">
-          <i class="fa fa-facebook"> </i>
-        </a>
       </div>
     </div>
     <!-- Grid column -->

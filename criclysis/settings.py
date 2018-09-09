@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'criclysis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'filterdb',
+        'NAME': 'cric',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': '127.0.0.1',

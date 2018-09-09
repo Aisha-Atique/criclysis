@@ -20,18 +20,42 @@
     </div>
 </form>
       {% else %}
-
-      <h5>You have chosen {{ total_teams }} Teams for the Drafting</h5> <br>
-<h3>The picking order is {{ all_picks|slice:"-2"  }}.</h3>
-      <h3>It is Team {{ pick }} turn.</h3>
+<h5 class="alert alert-success text-center" role="alert">
+You have chosen {{ total_teams }} Teams for the Drafting
+            </h5>
+      <h3 class="alert alert-info" role="alert">The picking order is {{ all_picks|slice:"-2"  }}.<br>
+          It is Team {{ pick }} turn right now.
+      </h3>
 {% endif %}
         </div>
 </div>
 
-
-<section class="bg-primary" style="margin-top: -5em !important;">
       <div class="container">
         <div class="row">
+                       <div class="col-lg-6 ">
+<section class="bg-dark" style="margin-top: -5em !important;">
+      <div class="container">
+        <div class="row  wow fadeInUp">
+          <div class="col-lg-8 mx-auto text-white">
+            <h2 class="section-heading wow fadeInUp text-center">Selecting the perfect Playing 11</h2>
+            <hr class="main light my-4">
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">1 Captain should be there in the team (Playing 11 )</p>
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">1 Wicket Keeper should be there in the team</p>
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">2 Openers should be there in the team</p>
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">3 Middle Order Players should be there in the team</p>
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">2 Finishers should be there in the team</p>
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">At least 1 Spinner should be there in the team</p>
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">At least 2 Pacers should be there in the team</p>
+              <i class="fa fa-circle fa-pull-left"></i><p class="text-faded mb-4">Select young players but also experienced players</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+<div class="col-lg-6 ">
+<section class="bg-primary" style="margin-top: -5em !important;">
+      <div class="container">
+        <div class="row wow fadeInUp">
           <div class="col-lg-8 mx-auto text-white">
             <h2 class="section-heading wow fadeInUp text-center">How It Works</h2>
             <hr class="main light my-4">
@@ -54,4 +78,7 @@
         </div>
       </div>
     </section>
+</div>
+        </div>
+      </div>
   {% endblock %}
