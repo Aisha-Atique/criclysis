@@ -295,7 +295,7 @@ def team(request, pk):
 
         batsmenconsistent = {}
         batsmenconsistent['chart'] = {
-            "caption": "Team Batting Average",
+            "caption": "Team Batting Consistent Form",
             "subCaption": "For all selected Batsmen",
             "xAxisName": "Names",
             "yAxisName": "Average",
