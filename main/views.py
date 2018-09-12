@@ -187,361 +187,365 @@ class EmailUserForm(TemplateView):
 
 
 def team(request, pk):
-    user_sel = UserSelect.objects.filter(user=request.user, team=pk)
-    batsmen = []
-    bowlers = []
-    all_players = []
-    for i in user_sel:
-        if i.batsman:
-            batsmen.append(i.batsman)
-            all_players.append(i.batsman)
-        if i.bowler:
-            bowlers.append(i.bowler)
-            all_players.append(i.bowler)
-
-    dataSource = {}
-    dataSource['chart'] = {
-        "caption": "Team Ahp Rank",
-        "subCaption": "For all selected Batsmen",
-        "xAxisName": "Names",
-        "yAxisName": "Ahp Rank",
-        #"numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    dataSource['data'] = []
-    # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
-    for key in batsmen:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.ahprank
-
-        dataSource['data'].append(data)
-
-    column2D = FusionCharts("column2D", "ex1", "600", "350", "chart-1", "json", dataSource)
-
-    dataSource2 = {}
-    dataSource2['chart'] = {
-        "caption": "Team PCA Rank",
-        "subCaption": "For all selected Batsmen",
-        "xAxisName": "Names",
-        "yAxisName": "PCA Rank",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    dataSource2['data'] = []
-
-    for key in batsmen:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.rank
-
-        dataSource2['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column = FusionCharts("column2D", "ex2", "600", "350", "chart-2", "json", dataSource2)
-
-    dataSource3 = {}
-    dataSource3['chart'] = {
-        "caption": "Team Batting Strike-Rate",
-        "subCaption": "For all selected Batsmen",
-        "xAxisName": "Names",
-        "yAxisName": "Strike-Rate",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    dataSource3['data'] = []
-
-    for key in batsmen:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.sr
-
-        dataSource3['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column3 = FusionCharts("column2D", "ex3", "600", "350", "chart-3", "json", dataSource3)
-
-    batsmenaverage = {}
-    batsmenaverage['chart'] = {
-        "caption": "Team Batting Average",
-        "subCaption": "For all selected Batsmen",
-        "xAxisName": "Names",
-        "yAxisName": "Average",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    batsmenaverage['data'] = []
-
-    for key in batsmen:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.ave
-
-        batsmenaverage['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column4 = FusionCharts("column2D", "ex4", "600", "350", "chart-4", "json", batsmenaverage)
-
-    batsmenconsistent = {}
-    batsmenconsistent['chart'] = {
-        "caption": "Team Batting Average",
-        "subCaption": "For all selected Batsmen",
-        "xAxisName": "Names",
-        "yAxisName": "Average",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    batsmenconsistent['data'] = []
-
-    for key in batsmen:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.ave*0.4262 + key.inningsplayed*0.2566+key.sr*0.1510+ key.fifty*0.0556+key.centuries*0.0787-key.zeros*0.0328
-
-        batsmenconsistent['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column5 = FusionCharts("column2D", "ex5", "600", "350", "chart-5", "json", batsmenconsistent)
-
-
-    batsmenhitter = {}
-    batsmenhitter['chart'] = {
-        "caption": "Team Batting Hard Hitters",
-        "subCaption": "For all selected Batsmen",
-        "xAxisName": "Names",
-        "yAxisName": "Hard-Hitter",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    batsmenhitter['data'] = []
-
-    for key in batsmen:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.hardhitter
-
-        batsmenhitter['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column7 = FusionCharts("column2D", "ex7", "600", "350", "chart-7", "json", batsmenhitter)
-
-    batsmendotball = {}
-    batsmendotball['chart'] = {
-        "caption": "Team Batting Dot Balls View",
-        "subCaption": "For all selected Batsmen",
-        "xAxisName": "Names",
-        "yAxisName": "Dot balls ratio",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    batsmendotball['data'] = []
-
-    for key in batsmen:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.dotball
-
-        batsmendotball['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column8 = FusionCharts("column2D", "ex8", "600", "350", "chart-8", "json", batsmendotball)
-
-     #bowler charts started
-
-    Source = {}
-    Source['chart'] = {
-        "caption": "Team Ahp Rank",
-        "subCaption": "For all selected Bowler",
-        "xAxisName": "Names",
-        "yAxisName": "Ahp Rank",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    Source['data'] = []
-    # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
-    for key in bowlers:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.ahprank
-
-        Source['data'].append(data)
-
-    column9 = FusionCharts("column2D", "ex9", "600", "350", "chart-9", "json", Source)
-
-    Source2 = {}
-    Source2['chart'] = {
-        "caption": "Team PCA Rank",
-        "subCaption": "For all selected Bowler",
-        "xAxisName": "Names",
-        "yAxisName": "PCA Rank",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    Source2['data'] = []
-
-    for key in bowlers:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.rank
-
-        Source2['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column10 = FusionCharts("column2D", "ex10", "600", "350", "chart-10", "json", Source2)
-
-    Source3 = {}
-    Source3['chart'] = {
-        "caption": "Team Bowling Strike-Rate",
-        "subCaption": "For all selected Bowler",
-        "xAxisName": "Names",
-        "yAxisName": "Strike-Rate",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    Source3['data'] = []
-
-    for key in bowlers:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.sr
-
-        Source3['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column11 = FusionCharts("column2D", "ex11", "600", "350", "chart-11", "json", Source3)
-
-    bowleraverage = {}
-    bowleraverage['chart'] = {
-        "caption": "Team Bowling Average",
-        "subCaption": "For all selected Bowler",
-        "xAxisName": "Names",
-        "yAxisName": "Average",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    bowleraverage['data'] = []
-
-    for key in bowlers:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.ave
-
-        bowleraverage['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column12 = FusionCharts("column2D", "ex12", "600", "350", "chart-12", "json", bowleraverage)
-
-    bowlerconsistent = {}
-    bowlerconsistent['chart'] = {
-        "caption": "Team Bowling Consistent Form",
-        "subCaption": "For all selected Bowler",
-        "xAxisName": "Names",
-        "yAxisName": "Current Form metric",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    bowlerconsistent['data'] = []
-
-    for key in bowlers:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.totalovers * 0.3269 + key.matches * 0.2846 + key.sr * 0.1877 + key.ave * 0.1210 + key.wickettaker*0.0798
-
-        bowlerconsistent['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column13 = FusionCharts("column2D", "ex13", "600", "350", "chart-13", "json", bowlerconsistent)
-
-    bowlerecon = {}
-    bowlerecon['chart'] = {
-        "caption": "Team Bowling Hard Hitters",
-        "subCaption": "For all selected Bowler",
-        "xAxisName": "Names",
-        "yAxisName": "Economy",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    bowlerecon['data'] = []
-
-    for key in bowlers:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.econ
-
-        bowlerecon['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column14 = FusionCharts("column2D", "ex14", "600", "350", "chart-14", "json", bowlerecon)
-
-    bowlerwkt = {}
-    bowlerwkt['chart'] = {
-        "caption": "Team Bowling Wicket Taking View",
-        "subCaption": "For all selected Bowler",
-        "xAxisName": "Names",
-        "yAxisName": "Wickets ratio",
-        # "numberPrefix": "$",
-        "theme": "zune",
-        "type": "column2D"
-    }
-
-    bowlerwkt['data'] = []
-
-    for key in bowlers:
-        data = {}
-        data['label'] = key.name
-        data['value'] = key.wickettaker
-
-        bowlerwkt['data'].append(data)
-
-    # Create an object for the Column 2D chart using the FusionCharts class constructor
-    column15 = FusionCharts("column2D", "ex15", "600", "350", "chart-15", "json", bowlerwkt)
-
-    context = {
-        'all_players': all_players,
-        'batsmen': batsmen,
-        'bowlers': bowlers,
-        'output': column2D.render(),
-        'output2': column.render(),
-        'output5': column5.render(),
-        'output3': column3.render(),
-        'output4': column4.render(),
-        'output7': column7.render(),
-        'output8': column8.render(),
-        'output9': column9.render(),
-        'output10': column10.render(),
-        'output11': column11.render(),
-        'output12': column12.render(),
-        'output13': column13.render(),
-        'output14': column14.render(),
-        'output15': column15.render(),
-    }
-    return render(request, 'team_analysis.html', context)
+    if not request.user.is_authenticated():
+        return render(request, 'registration/login.html')
+    else:
+        user_sel = UserSelect.objects.filter(user=request.user, team=pk)
+        batsmen = []
+        bowlers = []
+        all_players = []
+        for i in user_sel:
+            if i.batsman:
+                batsmen.append(i.batsman)
+                all_players.append(i.batsman)
+            if i.bowler:
+                bowlers.append(i.bowler)
+                all_players.append(i.bowler)
+
+        dataSource = {}
+        dataSource['chart'] = {
+            "caption": "Team Ahp Rank",
+            "subCaption": "For all selected Batsmen",
+            "xAxisName": "Names",
+            "yAxisName": "Ahp Rank",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        dataSource['data'] = []
+        # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
+        for key in batsmen:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.ahprank
+
+            dataSource['data'].append(data)
+
+        column2D = FusionCharts("column2D", "ex1", "600", "350", "chart-1", "json", dataSource)
+
+        dataSource2 = {}
+        dataSource2['chart'] = {
+            "caption": "Team PCA Rank",
+            "subCaption": "For all selected Batsmen",
+            "xAxisName": "Names",
+            "yAxisName": "PCA Rank",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        dataSource2['data'] = []
+
+        for key in batsmen:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.rank
+
+            dataSource2['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column = FusionCharts("column2D", "ex2", "600", "350", "chart-2", "json", dataSource2)
+
+        dataSource3 = {}
+        dataSource3['chart'] = {
+            "caption": "Team Batting Strike-Rate",
+            "subCaption": "For all selected Batsmen",
+            "xAxisName": "Names",
+            "yAxisName": "Strike-Rate",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        dataSource3['data'] = []
+
+        for key in batsmen:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.sr
+
+            dataSource3['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column3 = FusionCharts("column2D", "ex3", "600", "350", "chart-3", "json", dataSource3)
+
+        batsmenaverage = {}
+        batsmenaverage['chart'] = {
+            "caption": "Team Batting Average",
+            "subCaption": "For all selected Batsmen",
+            "xAxisName": "Names",
+            "yAxisName": "Average",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        batsmenaverage['data'] = []
+
+        for key in batsmen:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.ave
+
+            batsmenaverage['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column4 = FusionCharts("column2D", "ex4", "600", "350", "chart-4", "json", batsmenaverage)
+
+        batsmenconsistent = {}
+        batsmenconsistent['chart'] = {
+            "caption": "Team Batting Average",
+            "subCaption": "For all selected Batsmen",
+            "xAxisName": "Names",
+            "yAxisName": "Average",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        batsmenconsistent['data'] = []
+
+        for key in batsmen:
+            data = {}
+            data['label'] = key.name
+            data[
+                'value'] = key.ave * 0.4262 + key.inningsplayed * 0.2566 + key.sr * 0.1510 + key.fifty * 0.0556 + key.centuries * 0.0787 - key.zeros * 0.0328
+
+            batsmenconsistent['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column5 = FusionCharts("column2D", "ex5", "600", "350", "chart-5", "json", batsmenconsistent)
+
+        batsmenhitter = {}
+        batsmenhitter['chart'] = {
+            "caption": "Team Batting Hard Hitters",
+            "subCaption": "For all selected Batsmen",
+            "xAxisName": "Names",
+            "yAxisName": "Hard-Hitter",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        batsmenhitter['data'] = []
+
+        for key in batsmen:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.hardhitter
+
+            batsmenhitter['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column7 = FusionCharts("column2D", "ex7", "600", "350", "chart-7", "json", batsmenhitter)
+
+        batsmendotball = {}
+        batsmendotball['chart'] = {
+            "caption": "Team Batting Dot Balls View",
+            "subCaption": "For all selected Batsmen",
+            "xAxisName": "Names",
+            "yAxisName": "Dot balls ratio",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        batsmendotball['data'] = []
+
+        for key in batsmen:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.dotball
+
+            batsmendotball['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column8 = FusionCharts("column2D", "ex8", "600", "350", "chart-8", "json", batsmendotball)
+
+        # bowler charts started
+
+        Source = {}
+        Source['chart'] = {
+            "caption": "Team Ahp Rank",
+            "subCaption": "For all selected Bowler",
+            "xAxisName": "Names",
+            "yAxisName": "Ahp Rank",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        Source['data'] = []
+        # Iterate through the data in `Revenue` model and insert in to the `dataSource['data']` list.
+        for key in bowlers:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.ahprank
+
+            Source['data'].append(data)
+
+        column9 = FusionCharts("column2D", "ex9", "600", "350", "chart-9", "json", Source)
+
+        Source2 = {}
+        Source2['chart'] = {
+            "caption": "Team PCA Rank",
+            "subCaption": "For all selected Bowler",
+            "xAxisName": "Names",
+            "yAxisName": "PCA Rank",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        Source2['data'] = []
+
+        for key in bowlers:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.rank
+
+            Source2['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column10 = FusionCharts("column2D", "ex10", "600", "350", "chart-10", "json", Source2)
+
+        Source3 = {}
+        Source3['chart'] = {
+            "caption": "Team Bowling Strike-Rate",
+            "subCaption": "For all selected Bowler",
+            "xAxisName": "Names",
+            "yAxisName": "Strike-Rate",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        Source3['data'] = []
+
+        for key in bowlers:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.sr
+
+            Source3['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column11 = FusionCharts("column2D", "ex11", "600", "350", "chart-11", "json", Source3)
+
+        bowleraverage = {}
+        bowleraverage['chart'] = {
+            "caption": "Team Bowling Average",
+            "subCaption": "For all selected Bowler",
+            "xAxisName": "Names",
+            "yAxisName": "Average",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        bowleraverage['data'] = []
+
+        for key in bowlers:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.ave
+
+            bowleraverage['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column12 = FusionCharts("column2D", "ex12", "600", "350", "chart-12", "json", bowleraverage)
+
+        bowlerconsistent = {}
+        bowlerconsistent['chart'] = {
+            "caption": "Team Bowling Consistent Form",
+            "subCaption": "For all selected Bowler",
+            "xAxisName": "Names",
+            "yAxisName": "Current Form metric",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        bowlerconsistent['data'] = []
+
+        for key in bowlers:
+            data = {}
+            data['label'] = key.name
+            data[
+                'value'] = key.totalovers * 0.3269 + key.matches * 0.2846 + key.sr * 0.1877 + key.ave * 0.1210 + key.wickettaker * 0.0798
+
+            bowlerconsistent['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column13 = FusionCharts("column2D", "ex13", "600", "350", "chart-13", "json", bowlerconsistent)
+
+        bowlerecon = {}
+        bowlerecon['chart'] = {
+            "caption": "Team Bowling Hard Hitters",
+            "subCaption": "For all selected Bowler",
+            "xAxisName": "Names",
+            "yAxisName": "Economy",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        bowlerecon['data'] = []
+
+        for key in bowlers:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.econ
+
+            bowlerecon['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column14 = FusionCharts("column2D", "ex14", "600", "350", "chart-14", "json", bowlerecon)
+
+        bowlerwkt = {}
+        bowlerwkt['chart'] = {
+            "caption": "Team Bowling Wicket Taking View",
+            "subCaption": "For all selected Bowler",
+            "xAxisName": "Names",
+            "yAxisName": "Wickets ratio",
+            # "numberPrefix": "$",
+            "theme": "zune",
+            "type": "column2D"
+        }
+
+        bowlerwkt['data'] = []
+
+        for key in bowlers:
+            data = {}
+            data['label'] = key.name
+            data['value'] = key.wickettaker
+
+            bowlerwkt['data'].append(data)
+
+        # Create an object for the Column 2D chart using the FusionCharts class constructor
+        column15 = FusionCharts("column2D", "ex15", "600", "350", "chart-15", "json", bowlerwkt)
+
+        context = {
+            'all_players': all_players,
+            'batsmen': batsmen,
+            'bowlers': bowlers,
+            'output': column2D.render(),
+            'output2': column.render(),
+            'output5': column5.render(),
+            'output3': column3.render(),
+            'output4': column4.render(),
+            'output7': column7.render(),
+            'output8': column8.render(),
+            'output9': column9.render(),
+            'output10': column10.render(),
+            'output11': column11.render(),
+            'output12': column12.render(),
+            'output13': column13.render(),
+            'output14': column14.render(),
+            'output15': column15.render(),
+        }
+        return render(request, 'team_analysis.html', context)
 
 
 
