@@ -3,10 +3,12 @@
 {% block body %}
 {% load staticfiles%}
 <div class="hidefooter">
-<div class="container-fluid">
-<div class="row wow fadeInDown">
-  <div class="col-md-4 col-sm-4 col-xs-12"></div>
-  <div class="col-md-4 col-sm-4 col-xs-12">
+                <!-- Content -->
+        <div class="container">
+          <!--Grid row-->
+          <div class="row mt-5">
+            <!--Grid column-->
+            <div class="col-md-6 mb-5 mt-md-0 mt-5">
   	<div class="card">
     <div class="card-block">
         <div class="modal-header info-color white-text">
@@ -65,9 +67,37 @@
 
           </div>
       </div>
-  </div>
-  <div class="col-md-4 col-sm-4 col-xs-12"></div>
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-6 col-xl-5 mb-4">
+              <!--Form-->
+                <div class="card">
+    <div class="card-block">
+
+<div class="modal-body">
+    <p><strong>Or SignUp with social website</strong></p>
+    <div class="d-flex flex-column justify-content-center" >
+    <button class="loginBtn loginBtn--facebook" onclick="location.href='{% url 'social:begin' 'facebook' %}';">
+  SignUp with Facebook
+</button>
+
+<button class="loginBtn loginBtn--google" onclick="location.href='{% url 'social:begin' 'google-oauth2' %}';">
+  SignUp with Google
+</button>
 </div>
+</div>
+
+
+          </div>
+      </div>
+              <!--/.Form-->
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Content -->
 </div>
 {% endblock %}
 </div>

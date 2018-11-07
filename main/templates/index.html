@@ -31,10 +31,15 @@
             <h2 class="section-heading text-white wow fadeInUp">We've got what you seek !</h2>
             <hr class="main light my-4">
             <p class="text-faded mb-4">Player analytics is a growing trend in professional sports and will have a wider impact on the entire sports industry. Any team that does not apply them to its fullest extent is at a competitive disadvantage.
-If you donot want to be at the downside then Criclysis is the miracle !</p>
+If you don't want to be at the downside then Criclysis is the miracle !</p>
             <p class="text-faded mb-4">The cricket analytics community seems to be shaping up pretty well, and there seems to be a lot of enthusiasm for it.</p>
             <p class="text-faded mb-4">Big Data in Sports has a vital role to play in decision making in future by recording the experiences and predicting behaviors based on cricket data.</p>
-              <a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'register' %}">Get Started!</a>
+                             {% if user.is_authenticated %}
+                <a></a>
+                {%else%}
+                          <a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'register' %}">Get Started!</a>
+                {%endif%}
+
           </div>
         </div>
       </div>
